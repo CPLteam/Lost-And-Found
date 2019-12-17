@@ -55,7 +55,7 @@
           <span>Penemuan Barang</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<?= base_url('penemuan') ?>">
+        <a class="nav-link" href="<?= base_url().'pengambilan/index' ?>">
           <i class="fas fa-store-alt"></i>
           <span>Pengambilan Barang</span></a>
       </li>

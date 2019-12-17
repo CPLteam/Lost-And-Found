@@ -1,50 +1,45 @@
-<?php
-
-defined('BASEPATH') or exit('No direct script access allowed');
-
-class Pengambilan extends CI_Controller
-{
-
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->model('Pengambilan_model');
-		$this->load->library('form_validation');
+<?php 
+ 
+ 
+class Pengambilan extends CI_Controller{
+ 
+	function __construct(){
+        	parent::__construct();
+			$this->load->model('pengambilan_model');
+			$this->load->library('form_validation');
 	}
 
 	public function index()
 	{
+		#template tampilan web
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['title'] = 'Lost & Found - Pengambilan';
+		$data['title'] = 'Lost & Found -  Formulir Pengambilan';
 		$this->load->view('templates/auth_header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('pengambilan/index');
-		$this->load->view('templates/footer', $data);
-		$this->load->view('templates/auth_footer');
-	}
 
-	public function add_action()
-	{
-		// $no_laporan = $this->input->post('no_laporan');
-		// $nama_pengambil = $this->input->post('nama_pengambil');
-		// $no_hp = $this->input->post('no_hp');
-		// $foto_pengambilan = $this->input->post('foto_pengambilan');
-		// $tgl_pengambilan = $this->input->post('Tgl_ambil');
+		#hubungan dengan data
+		$data['content_id'] = 'pengambilan/index.php';
 
+        $data = array(
+                    'no_laporan' =>set_value('no_laporan') ,
+                    'nama_pengambil' =>set_value('nama_pengambil'),
+                    'no_hp' =>set_value('no_hp'),
+                    'foto_pengambil'=>set_value('foto_pengambil'),
+                    'tgl_pengambilan'=>set_value('tgl_pengambilan'));
 
-
-		$data = array(
-			'id_ambil' => uniqid(),
-			'no_laporan' => $this->input->post('no_laporan', true),
-			'nama_pengambil' => $this->input->post('nama_pengambil', true),
-			'no_hp' => $this->input->post('no_hp', true),
-			// 'foto_pengambilan' => 'default.jpg',
-			'Tgl_ambil' => time()
-		);
-
-		// $this->db->insert('pengambilan', $data);
-		$this->Pengambilan_model->input_data($data);
-		redirect('pengambilan/index');
+		$this->form_validation->set_rules('no_laporan', 'no_laporan', 'required');
+        $this->form_validation->set_rules('nama_pengambil', 'nama_pengambil', 'required');
+        $this->form_validation->set_rules('no_hp', 'no_hp', 'required');
+        $this->form_validation->set_rules('foto_pengambil', 'foto_pengambil', 'required');
+        $this->form_validation->set_rules('tgl_pengambilan', 'tgl_pengambilan', 'required');
+        
+        if ($this->form_validation->run() ==FALSE) {
+            $data['content_id'] = 'pengambilan/index.php';
+            } else {
+			$this->pengambilan_model->input_data();
+			redirect(home);
+        }
 	}
 }
