@@ -1,37 +1,50 @@
-<?php 
- 
- 
-class Pengambilan extends CI_Controller{
- 
-	function __construct(){
-        	parent::__construct();
-        	$this->load->model('pengambilan_model');
+<?php
+
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Pengambilan extends CI_Controller
+{
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Pengambilan_model');
+		$this->load->library('form_validation');
 	}
- 
-	function index(){
-        	$this ->add_view();
+
+	public function index()
+	{
+		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['title'] = 'Lost & Found - Pengambilan';
+		$this->load->view('templates/auth_header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('pengambilan/index');
+		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/auth_footer');
 	}
- 
-	function add_view(){
-		$this->load->view('pengambilan/form_pengambilan');
-	}
-    
-    	function add_action(){
-        	$no_laporan = $this->input->post('laporan');
-		$nama_pengambil = $this->input->post('nama');
-        	$no_hp = $this->input->post('hp');
-        	$foto_pengambilan = $this->input->post('foto');
-        	$tgl_pengambilan = $this->input->post('tanggal');
- 
+
+	public function add_action()
+	{
+		// $no_laporan = $this->input->post('no_laporan');
+		// $nama_pengambil = $this->input->post('nama_pengambil');
+		// $no_hp = $this->input->post('no_hp');
+		// $foto_pengambilan = $this->input->post('foto_pengambilan');
+		// $tgl_pengambilan = $this->input->post('Tgl_ambil');
+
+
+
 		$data = array(
-			'laporan' => $no_laporan,
-			'nama' => $nama_pengambil,
-            		'hp' => $no_hp,
-            		'foto'=> $foto_pengambilan,
-            		'tanggal' => $tgl_pengambilan
-            	);
-        
-        	$this->pengambilan_model->input_data($data,'pengambilan');
-		redirect('pengambilan/form_pengambilan');
+			'id_ambil' => uniqid(),
+			'no_laporan' => $this->input->post('no_laporan', true),
+			'nama_pengambil' => $this->input->post('nama_pengambil', true),
+			'no_hp' => $this->input->post('no_hp', true),
+			// 'foto_pengambilan' => 'default.jpg',
+			'Tgl_ambil' => time()
+		);
+
+		// $this->db->insert('pengambilan', $data);
+		$this->Pengambilan_model->input_data($data);
+		redirect('pengambilan/index');
 	}
 }

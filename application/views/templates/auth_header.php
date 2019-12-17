@@ -19,4 +19,4 @@
 
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark" id="page-top">
