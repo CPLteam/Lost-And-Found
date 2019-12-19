@@ -41,15 +41,32 @@ class Pengambilan extends CI_Controller
 	{
 		$this->add();
 
+		$foto_pengambil = $_FILES['foto_pengambil'];
+		if ($foto_pengambil == '') {
+		} else {
+			$config['upload_path'] = './assets/img';
+			$config['allowed_types'] = 'jpg|png|gif';
+
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload('foto_pengambil')) {
+				echo "Upload Gagal";
+				die();
+			} else {
+				$foto_pengambil = $this->upload->data('file_name');
+			}
+		}
+
 		$data = array(
 			'id_ambil' => uniqid(),
 			'no_laporan' => $this->input->post('no_laporan', true),
 			'nama_pengambil' => $this->input->post('nama_pengambil', true),
 			'no_hp' => $this->input->post('no_hp', true),
+			'foto_pengambil' => $foto_pengambil,
 			'tgl_pengambilan' => time()
 		);
 
 		$this->pengambilan_model->input_data($data);
 		redirect(site_url('pengambilan'));
- 	}
+	}
 }

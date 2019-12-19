@@ -19,6 +19,7 @@
 						<td><?= $ambil['nama_pengambil'] ?></td>
 						<td><?= $ambil['no_hp'] ?></td>
 						<td><?= $ambil['tgl_pengambilan'] = date('d F Y') ?></td>
+						<td><img src="<?= base_url();  ?>assets/img/<?= $ambil['foto_pengambil'] ?>" width="90" height="110"></td>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>
