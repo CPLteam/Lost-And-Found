@@ -141,8 +141,7 @@ class Auth extends CI_Controller
             'smtp_pass' => 'cplteam2019',
             'smtp_crypto' => 'security', //can be 'ssl' or 'tls' for example
             'mailtype' => 'html', //plaintext 'text' mails or 'html'
-            'smtp_timeout' => '4', //in seconds
-            'charset' => 'iso-8859-1',
+            'charset' => 'utf-8',
             'wordwrap' => TRUE
         ];
 
