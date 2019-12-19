@@ -138,9 +138,7 @@ class Auth extends CI_Controller
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_user' => 'lostandfoundalazhar@gmail.com',
             'smtp_pass' => 'cplteam2019',
-            'smtp_port' => 465,
-            'smtp_crypto' => 'security',
-            'smtp_timeout' => '4',
+            'smtp_port' => 25,
             'mailtype' => 'html',
             'charset' => 'utf-8',
             'newline' => "\r\n"
