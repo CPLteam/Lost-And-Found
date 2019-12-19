@@ -10,14 +10,14 @@
         <h1>List Temuan Barang</h1>
         <?php echo anchor(site_url('penemuan/add'), 'Tambah Baru', 'class="btn btn-primary"'); ?>
         <table class="table">
-            <ul>
+            <!-- <ul>
                 <li>
                     <div class="rounded-circle bg-danger status"></div>&nbsp;Barang Belum Diambil
                 </li>
                 <li>
                     <div class="rounded-circle bg-success status"></div>&nbsp;Barang Sudah Diambil
                 </li>
-            </ul>
+            </ul> -->
             <thead>
                 <tr>
                     <th scope="col">No Laporan</th>
@@ -41,17 +41,17 @@
                         <td><?= $temu['lokasi_penemuan'] ?></td>
                         <td><?= $temu['deskripsi'] ?></td>
                         <td><?= $temu['nama_barang'] ?></td>
-                        <td><a href="<?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="badge badge-danger float-right" onclick="return confirm('yakin?')">Hapus</a></td>
+                        <td><a href="<?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" onclick="return confirm('yakin?')">Hapus</a></td>
                         <td>
                             <a href="">
                                 <?php
                                 switch ($temu['status']) {
                                     case 0:
-                                        echo '<div class="p-2 d-inline-block rounded-circle bg-danger float-right"></div>';
+                                        echo '<button type="button" class="btn btn-danger">Belum Diambil</button>';
                                         break;
 
                                     case 1:
-                                        echo '<div class="p-2 d-inline-block rounded-circle bg-success float-right"></div>';
+                                        echo '<button type="button" class="btn btn-success">Sudah Diambil</button>';
                                         break;
                                 }
                                 ?>
