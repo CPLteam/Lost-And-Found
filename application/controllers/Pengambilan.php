@@ -46,7 +46,7 @@ class Pengambilan extends CI_Controller
 			'no_laporan' => $this->input->post('no_laporan', true),
 			'nama_pengambil' => $this->input->post('nama_pengambil', true),
 			'no_hp' => $this->input->post('no_hp', true),
-			'tgl_pengambilan' => $this->input->post('tgl_pengambilan', true)
+			'tgl_pengambilan' => time()
 		);
 
 		$this->pengambilan_model->input_data($data);
