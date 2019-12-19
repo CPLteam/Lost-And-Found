@@ -23,35 +23,6 @@ class Pengambilan extends CI_Controller
 		$this->load->view('pengambilan/index');
 		$this->load->view('templates/footer', $data);
 		$this->load->view('templates/auth_footer');
-
-		// #hubungan dengan data
-		// $data['content_id'] = 'pengambilan/index.php';
-		// if ($this->input->post('submit') == TRUE) {
-		// 	$attr = array(
-		// 		//	'id_ambil' =>set_value(uniqid()),
-		// 		'no_laporan' => $this->input->post('no_laporan', true),
-		// 		'nama_pengambil' => $this->input->post('nama_pengambil', true),
-		// 		'no_hp' => $this->input->post('no_hp', true),
-		// 		'foto_pengambil' => 'default.jpg',
-		// 		'tgl_pengambilan' => time()
-		// 	);
-		// 	$this->pengambilan_model->input_data($attr);
-		// }
-
-
-		//$this->pengambilan_model->input_data($attr);
-		//$this->form_validation->set_rules('no_laporan', 'no_laporan', 'required');
-		//$this->form_validation->set_rules('nama_pengambil', 'nama_pengambil', 'required');
-		//$this->form_validation->set_rules('no_hp', 'no_hp', 'required');
-		//$this->form_validation->set_rules('foto_pengambil', 'foto_pengambil', 'required');
-		//$this->form_validation->set_rules('tgl_pengambilan', 'tgl_pengambilan', 'required');
-
-		//if ($this->form_validation->run() ==FALSE) {
-		//  $data['content_id'] = 'pengambilan/index.php';
-		//  } else {
-		//$this->pengambilan_model->input_data();
-		//redirect(home);
-		//}
 	}
 
 	public function add()
