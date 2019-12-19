@@ -16,7 +16,7 @@
 				</div>
 				<div class="form-group">
 					<label for="tgl_pengambilan">Tanggal Pengambilan</label>
-					<input type="text" class="form-control" name="tgl_pengambilan" id="tgl_pengambilan" value="<?= set_value('tgl_pengambilan');?>">
+					<input type="text" class="form-control" name="tgl_pengambilan" id="tgl_pengambilan" value="<?= set_value('tgl_pengambilan'); ?>">
 				</div>
 				<button type="submit" class="btn btn-primary float-right">
 					Submit

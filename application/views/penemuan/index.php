@@ -1,8 +1,23 @@
+<style type="text/css">
+    .status {
+        width: 20px;
+        height: 20px;
+        float: left;
+    }
+</style>
 <div class="row">
     <div class="col-xl-12 col-lg-12">
         <h1>List Temuan Barang</h1>
         <?php echo anchor(site_url('penemuan/add'), 'Tambah Baru', 'class="btn btn-primary"'); ?>
         <table class="table">
+            <ul>
+                <li>
+                    <div class="rounded-circle bg-danger status"></div>&nbsp;Barang Belum Diambil
+                </li>
+                <li>
+                    <div class="rounded-circle bg-success status"></div>&nbsp;Barang Sudah Diambil
+                </li>
+            </ul>
             <thead>
                 <tr>
                     <th scope="col">No Laporan</th>
@@ -10,9 +25,10 @@
                     <th scope="col">Id User</th>
                     <th scope="col">Tanggal temuan</th>
                     <th scope="col">Lokasi temuan</th>
-                    <th scope="col">deskripsi</th>
-                    <th scope="col">nama barang</th>
+                    <th scope="col">Deskripsi</th>
+                    <th scope="col">Nama barang</th>
                     <th scope="col">Aksi</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <?php foreach ($temuan as $temu) : ?>
@@ -26,6 +42,21 @@
                         <td><?= $temu['deskripsi'] ?></td>
                         <td><?= $temu['nama_barang'] ?></td>
                         <td><a href="<?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="badge badge-danger float-right" onclick="return confirm('yakin?')">Hapus</a></td>
+                        <td>
+                            <a href="">
+                                <?php
+                                switch ($temu['status']) {
+                                    case 0:
+                                        echo '<div class="p-2 d-inline-block rounded-circle bg-danger float-right"></div>';
+                                        break;
+
+                                    case 1:
+                                        echo '<div class="p-2 d-inline-block rounded-circle bg-success float-right"></div>';
+                                        break;
+                                }
+                                ?>
+                            </a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
