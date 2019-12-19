@@ -10,6 +10,8 @@
                     <th scope="col">Id User</th>
                     <th scope="col">Tanggal temuan</th>
                     <th scope="col">Lokasi temuan</th>
+                    <th scope="col">deskripsi</th>
+                    <th scope="col">nama barang</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -21,6 +23,8 @@
                         <td><?= $temu['id_user'] ?></td>
                         <td><?= $temu['tgl_temuan'] = date('d F Y') ?></td>
                         <td><?= $temu['lokasi_penemuan'] ?></td>
+                        <td><?= $temu['deskripsi'] ?></td>
+                        <td><?= $temu['nama_barang'] ?></td>
                         <td><a href="<?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="badge badge-danger float-right" onclick="return confirm('yakin?')">Hapus</a></td>
                     </tr>
                 <?php endforeach; ?>
