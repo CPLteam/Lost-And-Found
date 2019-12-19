@@ -134,14 +134,16 @@ class Auth extends CI_Controller
     private function _sendEmail($token, $type)
     {
         $config = [
-            'protocol' => 'smtp',
+            'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
             'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
             'smtp_user' => 'lostandfoundalazhar@gmail.com',
             'smtp_pass' => 'cplteam2019',
-            'smtp_port' => 465,
-            'mailtype' => 'html',
-            'charset' => 'utf-8',
-            'newline' => "\r\n"
+            'smtp_crypto' => 'security', //can be 'ssl' or 'tls' for example
+            'mailtype' => 'html', //plaintext 'text' mails or 'html'
+            'smtp_timeout' => '4', //in seconds
+            'charset' => 'iso-8859-1',
+            'wordwrap' => TRUE
         ];
 
         $this->load->library('email', $config);
