@@ -75,11 +75,10 @@ class Pengambilan extends CI_Controller
 			'no_laporan' => $this->input->post('no_laporan', true),
 			'nama_pengambil' => $this->input->post('nama_pengambil', true),
 			'no_hp' => $this->input->post('no_hp', true),
-			'Tgl_ambil' => time()
-			// 'foto_pengambil' => 'default.jpg',
+			'tgl_pengambilan' => $this->input->post('tgl_pengambilan', true)
 		);
 
 		$this->pengambilan_model->input_data($data);
 		redirect(site_url('pengambilan'));
-	}
+ 	}
 }

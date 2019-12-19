@@ -14,14 +14,10 @@
 					<label for="no_handphone">No Handphone</label>
 					<input type="text" class="form-control" name="no_hp" id="no_hp" value="<?= set_value('no_hp'); ?>">
 				</div>
-				<!-- <div class="form-group">
-					<label for="foto_pengambil">Foto Pengambil</td>
-					<input type="text" class="form-control" id="foto_pengambil">
-				</div> -->
-				<!-- <div class="form-group">
-					<label for="tgl_pengambilan">Tanggal Pengambilan</td>
-					<input type="datetime-local" class="form-control" id="tgl_pengambilan">
-				</div> -->
+				<div class="form-group">
+					<label for="tgl_pengambilan">Tanggal Pengambilan</label>
+					<input type="text" class="form-control" name="tgl_pengambilan" id="tgl_pengambilan" value="<?= set_value('tgl_pengambilan');?>">
+				</div>
 				<button type="submit" class="btn btn-primary float-right">
 					Submit
 				</button>

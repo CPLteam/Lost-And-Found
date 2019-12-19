@@ -18,7 +18,7 @@
 						<td><?= $ambil['no_laporan'] ?></td>
 						<td><?= $ambil['nama_pengambil'] ?></td>
 						<td><?= $ambil['no_hp'] ?></td>
-						<td><?= $ambil['Tgl_ambil'] = date('d F Y') ?></td>
+						<td><?= $ambil['tgl_pengambilan'] = date('d F Y') ?></td>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>

@@ -140,11 +140,11 @@ class Auth extends CI_Controller
             'smtp_pass' => 'cplteam2019',
             'smtp_port' => 465,
             'mailtype' => 'html',
-            'charset' => 'utf-8'
+            'charset' => 'utf-8',
+            'newline' => "\r\n"
         ];
 
         $this->load->library('email', $config);
-        $this->email->set_newline("\r\n");
         $this->email->initialize($config);
 
         $this->email->from('lostandfoundalazhar@gmail.com', 'Lost And Found Universitas Al Azhar Indonesia (UAI)');
