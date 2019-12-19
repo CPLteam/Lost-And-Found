@@ -14,6 +14,13 @@
 					<label for="no_handphone">No Handphone</label>
 					<input type="text" class="form-control" name="no_hp" id="no_hp" value="<?= set_value('no_hp'); ?>">
 				</div>
+<<<<<<< HEAD
+=======
+				<div class="form-group">
+					<label for="tgl_pengambilan">Tanggal Pengambilan</label>
+					<input type="text" class="form-control" name="tgl_pengambilan" id="tgl_pengambilan" value="<?= set_value('tgl_pengambilan'); ?>">
+				</div>
+>>>>>>> f317f47e23d15928b3446a4987ea2319fc99ab0c
 				<button type="submit" class="btn btn-primary float-right">
 					Submit
 				</button>

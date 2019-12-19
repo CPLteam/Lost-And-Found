@@ -34,11 +34,7 @@
 					<h1></h1>
 				</td>
 			</tr>
-			<!-- <tr>
-				<td>Tanggal Temuan</td>
-				<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
-				<td><input type="text" name="tgl_temuan" id="tgl_temuan" class="form-control" value="<?= set_value('tgl_temuan'); ?>"></td>
-			</tr> -->
+
 			<tr>
 				<td colspan=3>
 					<h1></h1>
@@ -48,6 +44,16 @@
 				<td>Lokasi Penemuan</td>
 				<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
 				<td><input type="text" name="lokasi_penemuan" id="lokasi_penemuan" class="form-control" value="<?= set_value('lokasi_penemuan'); ?>"></td>
+			</tr>
+			<tr>
+				<td>Deskripsi</td>
+				<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
+				<td><input type="text" name="deskripsi" id="deskripsi" class="form-control" value="<?= set_value('deskripsi'); ?>"></td>
+			</tr>
+			<tr>
+				<td>Nama Barang</td>
+				<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
+				<td><input type="text" name="nama_barang" id="nama_barang" class="form-control" value="<?= set_value('nama_barang'); ?>"></td>
 			</tr>
 			<tr>
 				<td colspan=3>

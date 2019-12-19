@@ -58,6 +58,9 @@ class Penemuan extends CI_Controller
             'id_user' => $this->input->post('id_user'),
             'tgl_temuan' => time(),
             'lokasi_penemuan' => $this->input->post('lokasi_penemuan'),
+            'deskripsi' => $this->input->post('deskripsi'),
+            'nama_barang' => $this->input->post('nama_barang'),
+            'status' => 0
         );
 
         $this->Penemuan_model->input_data($data);
