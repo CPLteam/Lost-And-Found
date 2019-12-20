@@ -35,10 +35,10 @@
                                 <hr>
 
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    <a class="small" href="<?php echo site_url('auth/forgotpassword') ?>">Lupa Kata Sandi?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="<?php echo site_url('auth/registration') ?>">Create an Account!</a>
+                                    <a class="small" href="<?php echo site_url('auth/registration') ?>">Buat Sebuah Akun!</a>
                                 </div>
 
                             </div>

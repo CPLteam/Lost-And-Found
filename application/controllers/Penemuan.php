@@ -11,7 +11,6 @@ class Penemuan extends CI_Controller
         parent::__construct();
         $this->load->model('Penemuan_model');
         $this->load->library('form_validation');
-        $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
     }
 
 
@@ -42,31 +41,35 @@ class Penemuan extends CI_Controller
 
     public function add_action()
     {
-        if ($this->form_validation->run() == false) {
-            $this->add();
-        } else {
-            // $no_laporan = ;
-            // $id_barang = ;
-            // $id_user = ;
-            // // $tgl_temuan = $this->input->post('tgl_temuan');
-            // $lokasi_penemuan = 
-            // $nama_barang = 
-            // $deskripsi = 
-            // // $foto_barang = $this->input->post('foto_barang');
+        $this->add();
 
-            $data = array(
-                'no_laporan' => $this->input->post('no_laporan'),
-                'id_barang' => $this->input->post('id_barang'),
-                'id_user' => $this->input->post('id_user'),
-                'tgl_temuan' => time(),
-                'lokasi_penemuan' => $this->input->post('lokasi_penemuan'),
-                'nama_barang' => $this->input->post('nama_barang'),
-                'deskripsi' => $this->input->post('deskripsi'),
-                'foto_barang' => 'default.jpg'
-            );
+        // $no_laporan = ;
+        // $id_barang = ;
+        // $id_user = ;
+        // // $tgl_temuan = $this->input->post('tgl_temuan');
+        // $lokasi_penemuan = 
+        // $nama_barang = 
+        // $deskripsi = 
+        // // $foto_barang = $this->input->post('foto_barang');
 
-            $this->Penemuan_model->input_data($data);
-            redirect(site_url('penemuan'));
-        }
+        $data = array(
+            'no_laporan' => $this->input->post('no_laporan'),
+            'id_barang' => $this->input->post('id_barang'),
+            'id_user' => $this->input->post('id_user'),
+            'tgl_temuan' => time(),
+            'lokasi_penemuan' => $this->input->post('lokasi_penemuan'),
+            'deskripsi' => $this->input->post('deskripsi'),
+            'nama_barang' => $this->input->post('nama_barang'),
+            'status' => 0
+        );
+
+        $this->Penemuan_model->input_data($data);
+        redirect(site_url('penemuan'));
+    }
+
+    public function hapus($no_laporan)
+    {
+        $this->Penemuan_model->hapusDataPenemuan($no_laporan);
+        redirect('penemuan');
     }
 }
