@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-xl-12 col-lg-12">
         <h1>List Temuan Barang</h1>
-        <?php echo anchor(site_url('penemuan/add'), 'Tambah Baru', 'class="btn btn-primary"'); ?>
+        <?php echo anchor(site_url('penemuan/add'), 'Tambah Baru', 'class="btn btn-primary float-left"'); ?>
         <table class="table">
             <!-- <ul>
                 <li>
