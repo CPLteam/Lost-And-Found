@@ -37,10 +37,11 @@
                         <td><?= $temu['no_laporan'] ?></td>
                         <td><?= $temu['id_barang'] ?></td>
                         <td><?= $temu['id_user'] ?></td>
-                        <td><?= $temu['tgl_temuan'] = date('d F Y') ?></td>
+                        <td><?= $temu['tgl_temuan'] ?></td>
                         <td><?= $temu['lokasi_penemuan'] ?></td>
                         <td><?= $temu['deskripsi'] ?></td>
                         <td><?= $temu['nama_barang'] ?></td>
+                        <td><img src="<?= base_url();  ?>assets/img/<?= $temu['foto_barang'] ?>" width="90" height="110"></td>
                         <td><a href="<?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" onclick="return confirm('yakin?')">Hapus</a></td>
                         <td>
                             <a href="">

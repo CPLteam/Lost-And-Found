@@ -42,6 +42,23 @@ class Penemuan extends CI_Controller
     public function add_action()
     {
         $this->add();
+        $now = date('Y-m-d');
+
+        $foto_barang = $_FILES['foto_barang'];
+		if ($foto_barang == '') {
+		} else {
+			$config['upload_path'] = './assets/img';
+			$config['allowed_types'] = 'jpg|png|gif';
+
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload('foto_barang')) {
+				echo "Upload Gagal";
+				die();
+			} else {
+				$foto_barang = $this->upload->data('file_name');
+			}
+		}
 
         // $no_laporan = ;
         // $id_barang = ;
@@ -56,10 +73,11 @@ class Penemuan extends CI_Controller
             'no_laporan' => $this->input->post('no_laporan'),
             'id_barang' => $this->input->post('id_barang'),
             'id_user' => $this->input->post('id_user'),
-            'tgl_temuan' => time(),
+            'tgl_temuan' => $now,
             'lokasi_penemuan' => $this->input->post('lokasi_penemuan'),
             'deskripsi' => $this->input->post('deskripsi'),
             'nama_barang' => $this->input->post('nama_barang'),
+            'foto_barang' => $foto_barang,
             'status' => 0
         );
 

@@ -2,7 +2,7 @@
 		<h1>Form Penemuan</h1>
 	</center>
 	<h1>&nbsp;</h1>
-	<form action="<?= base_url() . 'penemuan/add_action'; ?>" method="post">
+	<?= form_open_multipart('penemuan/add_action'); ?>
 		<table cellspacing="1" cellpadding="1">
 			<tr>
 				<td>No Laporan</td>
@@ -34,7 +34,11 @@
 					<h1></h1>
 				</td>
 			</tr>
-
+			<tr>
+				<td>Tanggal Temuan</td>
+				<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
+				<td><input type="text" name="tgl_temuan" id="tgl_temuan" class="form-control" value="<?= set_value('tgl_temuan'); ?>"></td>
+			</tr>
 			<tr>
 				<td colspan=3>
 					<h1></h1>
@@ -71,6 +75,11 @@
 				<td><input type="text" name="foto_barang" class="form-control"></td>
 			</tr> -->
 			<tr>
+				<td>Foto Barang</td>
+				<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
+				<td><input type="file" name="foto_barang" id="foto_barang" class="form-control" value="<?= set_value('foto_barang'); ?>"></td>
+			</tr>
+			<tr>
 				<td colspan=3>
 					<h1></h1>
 				</td>
@@ -81,5 +90,5 @@
 				<td><button type="submit" class="btn btn-primary">Simpan Data</button></td>
 			</tr>
 		</table>
-	</form>
+	<?= form_close(); ?>
 	</div>
