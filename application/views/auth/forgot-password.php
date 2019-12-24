@@ -30,7 +30,7 @@
                                 <hr>
 
                                 <div class="text-center">
-                                    <a class="small" href="<?php echo site_url('auth') ?>">Kembali Ke Login</a>
+                                    <a class="small" href="<?php echo site_url('auth') ?>">Kembali Ke Halaman Masuk</a>
                                 </div>
 
                             </div>

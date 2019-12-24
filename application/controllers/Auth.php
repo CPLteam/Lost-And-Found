@@ -77,7 +77,7 @@ class Auth extends CI_Controller
             'required' => 'Full Name atau Nama Lengkap wajib di isi!'
         ]);
         $this->form_validation->set_rules('username', 'UserName', 'required|trim', [
-            'required' => 'Username wajib di isi!'
+            'required' => 'Username atau Nama Pengguna wajib di isi!'
         ]);
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
             'is_unique' => 'Email ini sudah terdaftar!',
@@ -87,10 +87,10 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[6]|matches[password2]', [
             'matches' => 'Kata Sandi tidak cocok!',
             'min_length' => 'Kata Sandi terlalu pendek! Minimal 6 karakter!',
-            'required' => 'Kata Sandi wajib di isi!'
+            'required' => 'Kata Sandi dan Konfirmasi Kata Sandi wajib di isi!'
         ]);
         $this->form_validation->set_rules('password2', 'Confirm Password', 'trim|required|matches[password1]', [
-            'required' => 'Kata Sandi wajib di isi!',
+            'required' => 'Kata Sandi dan Konfirmasi Kata Sandi wajib di isi!',
             'matches' => 'Kata Sandi tidak cocok!'
         ]);
 
@@ -183,7 +183,7 @@ class Auth extends CI_Controller
 
                     $this->db->delete('user_token', ['email' => $email]);
 
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">' . $email . ' telah diaktifkan! Silahkan login!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">' . $email . ' telah diaktifkan! Silahkan Masuk!</div>');
                     redirect('auth');
                 } else {
                     $this->db->delete('user', ['email' => $email]);
@@ -304,7 +304,7 @@ class Auth extends CI_Controller
 
             $this->session->unset_userdata('reset_email');
 
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kata Sandi Telah Diubah! Silahkan Login!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kata Sandi Telah Diubah! Silahkan Masuk!</div>');
             redirect('auth');
         }
     }

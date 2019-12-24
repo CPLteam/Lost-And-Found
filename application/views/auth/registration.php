@@ -16,7 +16,7 @@
                                 <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="username" id="username" class="form-control form-control-user" placeholder="Username" value="<?= set_value('username'); ?>">
+                                <input type="text" name="username" id="username" class="form-control form-control-user" placeholder="Username atau Nama Pengguna" value="<?= set_value('username'); ?>">
                                 <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
@@ -32,14 +32,14 @@
                                     <input type="password" name="password2" id="confirmPassword" class="form-control form-control-user" placeholder="Konfirmasi Kata Sandi">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-user btn-block" href="auth/login">Register</button>
+                            <button type="submit" class="btn btn-primary btn-user btn-block" href="auth/login">Daftar</button>
                         </form>
                         <hr>
                         <div class="text-center">
                             <a class="small" href="<?php echo site_url('auth/forgotpassword') ?>">Lupa Kata Sandi?</a>
                         </div>
                         <div class="text-center">
-                            <a class="small" href="<?php echo site_url('auth') ?>">Sudah memiliki akun? Silahkan Login!</a>
+                            <a class="small" href="<?php echo site_url('auth') ?>">Sudah Memiliki Akun? Silahkan Masuk!</a>
                         </div>
                     </div>
                 </div>
