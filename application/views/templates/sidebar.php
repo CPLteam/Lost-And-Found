@@ -9,8 +9,9 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center">
-                <div class="sidebar-brand-icon rotate-n-15">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url('home') ?>">
+                <div class="sidebar-brand-icon">
+                    <!-- no rotate-n-15 -->
                     <i class="fas fa-code"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Lost & Found</div>
@@ -40,11 +41,11 @@
             </div>
 
             <!-- Nav Item-->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('kehilangan') ?>">
                     <i class="fas fa-database"></i>
                     <span>Kehilangan Barang</span></a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('penemuan') ?>">
                     <i class="fas fa-database"></i>
@@ -68,7 +69,7 @@
 
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider d-none d-md-block bg-light">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
