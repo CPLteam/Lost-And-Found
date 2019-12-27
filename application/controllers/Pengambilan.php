@@ -45,7 +45,7 @@ class Pengambilan extends CI_Controller
 		if ($foto_pengambil == '') {
 		} else {
 			$config['upload_path'] = './assets/img';
-			$config['allowed_types'] = 'jpg|png|gif';
+			$config['allowed_types'] = 'jpg|png';
 
 			$this->load->library('upload', $config);
 
@@ -63,7 +63,7 @@ class Pengambilan extends CI_Controller
 			'nama_pengambil' => $this->input->post('nama_pengambil', true),
 			'no_hp' => $this->input->post('no_hp', true),
 			'foto_pengambil' => $foto_pengambil,
-			'tgl_pengambilan' => time()
+			 
 		);
 
 		$this->pengambilan_model->input_data($data);

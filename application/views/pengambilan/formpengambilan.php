@@ -4,6 +4,17 @@
 			<?= form_open_multipart('pengambilan/add_action'); ?>
 			<div class="form-group">
 				<label for="no_laporan">No Laporan</label>
+				<div class="controls">
+        			<select required name="no_laporan">
+        			<option value="" disabled diselected>-- No Laporan --</option>
+        			<?php                                
+        				foreach ($temuan as $penemuan) {  
+		  					echo "<option value='".$penemuan->no_laporan."'>".$penemuan->nama_barang."</option>";
+		  				}
+		  				echo"
+					</select>"
+					?>
+    			</div>
 				<input type="text" class="form-control" name="no_laporan" id="no_laporan" value="<?= set_value('no_laporan'); ?>">
 			</div>
 			<div class="form-group">
