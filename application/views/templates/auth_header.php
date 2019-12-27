@@ -20,6 +20,10 @@
   <link href="<?php echo base_url('assets/css/sb-admin-2.min.css') ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/sb-admin-2.css') ?>" rel="stylesheet">
 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="<?php echo base_url ('assets/datepicker/bootstrap-datepicker.js')?>"></script>
+
 </head>
 
 <body class="bg-gradient-primary">
