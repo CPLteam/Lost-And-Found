@@ -4,7 +4,11 @@
 			<?= form_open_multipart('pengambilan/add_action'); ?>
 			<div class="form-group">
 				<label for="no_laporan">No Laporan</label>
-				<input type="text" class="form-control" name="no_laporan" id="no_laporan" value="<?= set_value('no_laporan'); ?>">
+				<select class="form-control" name="no_laporan" id="no_laporan" required>
+					<?php foreach($pengambilan as $row):?>
+					<option><?php echo $row->no_laporan;?></option>
+                    <?php endforeach;?>
+                </select>
 			</div>
 			<div class="form-group">
 				<label for="nama_pengambil">Nama Pengambil</label>

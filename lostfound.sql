@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Des 2019 pada 13.16
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.3.9
+-- Generation Time: 27 Des 2019 pada 09.40
+-- Versi Server: 10.1.13-MariaDB
+-- PHP Version: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lostandfound`
+-- Database: `lostfound`
 --
 
 -- --------------------------------------------------------
@@ -38,17 +36,53 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `jenis_barang`) VALUES
-(10, 'Elektronik - Devices'),
-(11, 'Elektronik -- Aksesosris'),
-(12, 'Elektronik -- Lainnya'),
-(20, 'Dokumen -- Map'),
-(21, 'Dokumen -- Buku'),
-(22, 'Dokumen -- Identitas'),
-(23, 'Dokumen -- Buku'),
-(24, 'Dokumen -- Lainnya'),
-(30, 'Pakaian -- Jaket'),
-(31, 'Pakaian -- Aksesoris'),
-(32, 'Pakaian -- Lainnya');
+(1, 'Peralatan Kuliah - Buku'),
+(2, 'Peralatan Kuliah - Tempat Pensil'),
+(3, 'Peralatan Kuliah - Aksesoris'),
+(4, 'Tas'),
+(5, 'Dompet'),
+(6, 'Kartu'),
+(7, 'Elektronik - HP'),
+(8, 'Elektronik - Laptop'),
+(9, 'Elektronik - Aksesoris'),
+(10, 'Baju'),
+(11, 'Sepatu'),
+(12, 'Hijab'),
+(13, 'Almamater'),
+(14, 'Jam Tangan'),
+(15, 'Kacamata'),
+(16, 'Kecantikan'),
+(17, 'Helm'),
+(18, 'Jaket'),
+(19, 'Botol dan Peralatan Makan'),
+(20, 'Peralatan Sholat'),
+(21, 'Lain-lain');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `lokasi`
+--
+
+CREATE TABLE `lokasi` (
+  `id_lokasi` int(100) NOT NULL,
+  `Lantai` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `lokasi`
+--
+
+INSERT INTO `lokasi` (`id_lokasi`, `Lantai`) VALUES
+(1, 'Lobby '),
+(2, 'Lantai 2'),
+(3, 'Lantai 3'),
+(4, 'Lantai 4'),
+(5, 'Lantai 5'),
+(6, 'Lantai 6'),
+(7, 'Lantai 7'),
+(8, 'Basement 1'),
+(9, 'Basement 2');
 
 -- --------------------------------------------------------
 
@@ -65,13 +99,6 @@ CREATE TABLE `pengambilan` (
   `tgl_pengambilan` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `pengambilan`
---
-
-INSERT INTO `pengambilan` (`id_ambil`, `no_laporan`, `nama_pengambil`, `no_hp`, `foto_pengambil`, `tgl_pengambilan`) VALUES
-('5dfb69f4cdce4', '18092019001', 'dhean', '087886752556', '', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -82,19 +109,13 @@ CREATE TABLE `temuan` (
   `no_laporan` varchar(100) NOT NULL,
   `id_barang` int(10) NOT NULL,
   `id_user` varchar(100) NOT NULL,
-  `tgl_temuan` datetime NOT NULL,
+  `tgl_temuan` date NOT NULL,
   `lokasi_penemuan` varchar(100) NOT NULL,
   `deskripsi` varchar(256) NOT NULL,
   `nama_barang` varchar(100) NOT NULL,
+  `foto_barang` varchar(100) NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `temuan`
---
-
-INSERT INTO `temuan` (`no_laporan`, `id_barang`, `id_user`, `tgl_temuan`, `lokasi_penemuan`, `deskripsi`, `nama_barang`, `status`) VALUES
-('18092019001', 23, '5dfb0baabec42\r\n', '2019-09-18 13:08:27', 'Lt. 6', 'Buku Fisika Dasar', 'Buku', 0);
 
 -- --------------------------------------------------------
 
@@ -177,54 +198,70 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 --
 
 --
--- Indeks untuk tabel `barang`
+-- Indexes for table `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indeks untuk tabel `pengambilan`
+-- Indexes for table `lokasi`
+--
+ALTER TABLE `lokasi`
+  ADD PRIMARY KEY (`id_lokasi`);
+
+--
+-- Indexes for table `pengambilan`
 --
 ALTER TABLE `pengambilan`
   ADD PRIMARY KEY (`id_ambil`),
   ADD KEY `no_laporan` (`no_laporan`);
 
 --
--- Indeks untuk tabel `temuan`
+-- Indexes for table `temuan`
 --
 ALTER TABLE `temuan`
   ADD PRIMARY KEY (`no_laporan`),
-  ADD KEY `id_barang` (`id_barang`);
+  ADD KEY `id_barang` (`id_barang`),
+  ADD KEY `id_barang_2` (`id_barang`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`),
   ADD KEY `id_level` (`id_level`);
 
 --
--- Indeks untuk tabel `user_level`
+-- Indexes for table `user_level`
 --
 ALTER TABLE `user_level`
   ADD PRIMARY KEY (`id_level`);
 
 --
--- Indeks untuk tabel `user_token`
+-- Indexes for table `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `user_token`
+-- AUTO_INCREMENT for table `barang`
+--
+ALTER TABLE `barang`
+  MODIFY `id_barang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `lokasi`
+--
+ALTER TABLE `lokasi`
+  MODIFY `id_lokasi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
@@ -239,14 +276,13 @@ ALTER TABLE `pengambilan`
 -- Ketidakleluasaan untuk tabel `temuan`
 --
 ALTER TABLE `temuan`
-  ADD CONSTRAINT `temuan_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`);
+  ADD CONSTRAINT `id_barang` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`);
 
 --
 -- Ketidakleluasaan untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_level`) REFERENCES `user_level` (`id_level`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
