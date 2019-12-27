@@ -2,9 +2,12 @@
 		<h1>Form Penemuan</h1>
 	</center>
 	<script>
-	$( function() {
-		$( "#datepicker" ).datepicker();
-	} );
+	$(  {
+		$( "#tgl_temuan" ).datepicker({
+			format: 'yyyy-mm-dd',
+			autoclose:true
+		});
+	});
 	</script>
 	<h1>&nbsp;</h1>
 	<?= form_open_multipart('penemuan/add_action'); ?>
@@ -46,7 +49,7 @@
 			<tr>
 				<td>Username</td>
 				<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
-				<td><input type="text" name="id_user" id="id_user" class="form-control" value="<?= $user['username']?>"></td>
+				<td><input readonly name="id_user" id="id_user" class="form-control" value="<?= $user['username']?>"></td>
 			</tr>
 			<tr>
 				<td colspan=3>
@@ -56,7 +59,7 @@
 			<tr>
 				<td>Tanggal Temuan</td>
 				<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
-				<td><input type="text" name="tgl_temuan" id="tgl_temuan datepicker" class="form-control datepicker" value="<?= set_value('tgl_temuan'); ?>"></td>
+				<td><input type="text" name="tgl_temuan" id="tgl_temuan" class="form-control "></td>
 			</tr>
 			<tr>
 				<td colspan=3>

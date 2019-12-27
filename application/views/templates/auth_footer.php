@@ -8,6 +8,8 @@
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
 
+    <script src="<?php echo base_url('datepicker/datepicker/js/bootstrap-datepicker.js')?>"></script>
+
     </body>
 
     </html>
