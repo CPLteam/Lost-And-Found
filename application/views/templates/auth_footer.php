@@ -18,8 +18,8 @@
 
     <script src="<?php echo base_url('assets/js/demo/datatables-demo.js') ?>"></script>
 
-    <script src="<?php echo base_url('datepicker/jquery-ui/jquery-ui.min.js') ?>"></script>
-    <script src="<?php echo base_url('datepicker/jquery-ui/external/jquery/jquery.js') ?>"></script>
+    <!-- <script src="<?php echo base_url('datepicker/jquery-ui/jquery-ui.min.js') ?>"></script>
+    <script src="<?php echo base_url('datepicker/jquery-ui/external/jquery/jquery.js') ?>"></script> -->
     <!-- <script src="<?php echo base_url('datepicker/datepicker/js/bootstrap-datepicker.js') ?>"></script> -->
 
     </body>
