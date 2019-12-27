@@ -69,4 +69,10 @@ class Pengambilan extends CI_Controller
 		$this->pengambilan_model->input_data($data);
 		redirect(site_url('pengambilan'));
 	}
+
+	public function get_nolaporan()
+	{
+		$nomor = $this->input->post('no_laporan',TRUE);
+        $data = $this->pengambilan_model->get_laporan($category_id)->result();
+	}
 }
