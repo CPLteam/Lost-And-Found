@@ -27,6 +27,7 @@
                     <th scope="col">Lokasi temuan</th>
                     <th scope="col">Deskripsi</th>
                     <th scope="col">Nama barang</th>
+                    <th scope="col">Foto Barang</th>
                     <th scope="col">Aksi</th>
                     <th scope="col">Status</th>
                 </tr>

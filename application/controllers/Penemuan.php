@@ -22,7 +22,7 @@ class Penemuan extends CI_Controller
         $this->load->view('templates/auth_header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('penemuan/index');
+        $this->load->view('penemuan/index2');
         $this->load->view('templates/footer', $data);
         $this->load->view('templates/auth_footer');
     }
@@ -45,20 +45,20 @@ class Penemuan extends CI_Controller
         $now = date('Y-m-d');
 
         $foto_barang = $_FILES['foto_barang'];
-		if ($foto_barang == '') {
-		} else {
-			$config['upload_path'] = './assets/img';
-			$config['allowed_types'] = 'jpg|png|gif';
+        if ($foto_barang == '') {
+        } else {
+            $config['upload_path'] = './assets/img';
+            $config['allowed_types'] = 'jpg|png|gif';
 
-			$this->load->library('upload', $config);
+            $this->load->library('upload', $config);
 
-			if (!$this->upload->do_upload('foto_barang')) {
-				echo "Upload Gagal";
-				die();
-			} else {
-				$foto_barang = $this->upload->data('file_name');
-			}
-		}
+            if (!$this->upload->do_upload('foto_barang')) {
+                echo "Upload Gagal";
+                die();
+            } else {
+                $foto_barang = $this->upload->data('file_name');
+            }
+        }
 
         // $no_laporan = ;
         // $id_barang = ;
