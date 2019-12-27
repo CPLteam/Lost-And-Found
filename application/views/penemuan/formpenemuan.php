@@ -1,13 +1,11 @@
 	<center>
 		<h1>Form Penemuan</h1>
 	</center>
-	<script>
-	$(  {
-		$( "#tgl_temuan" ).datepicker({
+	<script type="text/javascript">
+		$("#tgl_temuan").datepicker({
 			format: 'yyyy-mm-dd',
 			autoclose:true
-		});
-	});
+		});	
 	</script>
 	<h1>&nbsp;</h1>
 	<?= form_open_multipart('penemuan/add_action'); ?>
@@ -59,7 +57,7 @@
 			<tr>
 				<td>Tanggal Temuan</td>
 				<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
-				<td><input type="text" name="tgl_temuan" id="tgl_temuan" class="form-control "></td>
+				<td><input type="text" name="tgl_temuan" id="tgl_temuan" class="form-control " value="<?= set_value('tgl_temuan'); ?>"></td>
 			</tr>
 			<tr>
 				<td colspan=3>
