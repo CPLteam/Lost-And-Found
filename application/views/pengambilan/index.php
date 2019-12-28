@@ -4,7 +4,7 @@
 	<!-- Page Heading -->
 	<h1 class="h3 mb-4 text-gray-800">List Pengambilan Barang</h1>
 
-	<?php echo anchor(site_url('penemuan/add'), 'Tambah Baru', 'class="btn btn-primary"'); ?>
+	<?php echo anchor(site_url('pengambilan/add'), 'Tambah Baru', 'class="btn btn-primary"'); ?>
 
 	<hr>
 
