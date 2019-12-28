@@ -30,8 +30,8 @@ class Penemuan_model extends CI_Model
         $this->db->delete('temuan');
     }
 
-    public function get_status()
-    {
-        # code...
-    }
+    // public function get_status()
+    // {
+    //     # code...
+    // }
 }
