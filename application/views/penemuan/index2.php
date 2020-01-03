@@ -16,12 +16,12 @@
                     <thead class="table table-info text-center text-gray-800">
                         <tr>
                             <th scope="col">No Laporan</th>
-                            <th scope="col">Id Barang</th>
-                            <th scope="col">Id User</th>
-                            <th scope="col">Tanggal temuan</th>
-                            <th scope="col">Lokasi temuan</th>
-                            <th scope="col">Deskripsi</th>
-                            <th scope="col">Nama barang</th>
+                            <th scope="col">ID Barang / Jenis Barang</th>
+                            <th scope="col">ID User</th>
+                            <th scope="col">Tanggal Temuan</th>
+                            <th scope="col">Lokasi Temuan</th>
+                            <th scope="col">Deskripsi Barang</th>
+                            <th scope="col">Nama Barang</th>
                             <th scope="col">Foto Barang</th>
                             <th scope="col">Aksi</th>
                             <th scope="col">Status</th>

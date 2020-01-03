@@ -41,11 +41,11 @@
             </div>
 
             <!-- Nav Item-->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fas fa-database"></i>
                     <span>Kehilangan Barang</span></a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('penemuan') ?>">
                     <i class="fas fa-database"></i>
