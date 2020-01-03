@@ -63,7 +63,7 @@ class Pengambilan extends CI_Controller
 			'nama_pengambil' => $this->input->post('nama_pengambil', true),
 			'no_hp' => $this->input->post('no_hp', true),
 			'foto_pengambil' => $foto_pengambil,
-			 
+
 		);
 
 		$this->pengambilan_model->input_data($data);
@@ -72,7 +72,7 @@ class Pengambilan extends CI_Controller
 
 	public function get_nolaporan()
 	{
-		$nomor = $this->input->post('no_laporan',TRUE);
-        $data = $this->pengambilan_model->get_laporan($category_id)->result();
+		$nomor = $this->input->post('no_laporan', TRUE);
+		$data = $this->pengambilan_model->get_laporan($category_id)->result();
 	}
 }

@@ -10,6 +10,7 @@ class Penemuan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Penemuan_model');
+        $this->load->model('No_urut');
         $this->load->library('form_validation');
     }
 
