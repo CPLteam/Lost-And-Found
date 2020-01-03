@@ -2,9 +2,11 @@
 		<h1>Form Penemuan</h1>
 	</center>
 	<script type="text/javascript">
-		$("#tgl_temuan").datepicker({
-			format: 'yyyy-mm-dd',
-			autoclose: true
+		$(document).ready(function(){
+			$("#tgl_temuan").datepicker({
+				format: 'yyyy-mm-dd',
+				autoclose: true
+			})
 		});
 	</script>
 	<h1>&nbsp;</h1>
@@ -62,7 +64,7 @@
 		<tr>
 			<td>Tanggal Temuan</td>
 			<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
-			<td><input type="text" name="tgl_temuan" id="tgl_temuan" class="form-control " value="<?= set_value('tgl_temuan'); ?>"></td>
+			<td><input type="text" name="tgl_temuan" id="tgl_temuan" class="form-control datepicker" value="<?= set_value('tgl_temuan'); ?>"></td>
 		</tr>
 		<tr>
 			<td colspan=3>

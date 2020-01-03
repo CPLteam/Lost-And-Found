@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 27 Des 2019 pada 09.40
+-- Generation Time: 03 Jan 2020 pada 09.01
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -36,27 +36,26 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `jenis_barang`) VALUES
-(1, 'Peralatan Kuliah - Buku'),
-(2, 'Peralatan Kuliah - Tempat Pensil'),
-(3, 'Peralatan Kuliah - Aksesoris'),
-(4, 'Tas'),
-(5, 'Dompet'),
-(6, 'Kartu'),
-(7, 'Elektronik - HP'),
-(8, 'Elektronik - Laptop'),
-(9, 'Elektronik - Aksesoris'),
-(10, 'Baju'),
-(11, 'Sepatu'),
-(12, 'Hijab'),
-(13, 'Almamater'),
-(14, 'Jam Tangan'),
-(15, 'Kacamata'),
-(16, 'Kecantikan'),
-(17, 'Helm'),
-(18, 'Jaket'),
-(19, 'Botol dan Peralatan Makan'),
-(20, 'Peralatan Sholat'),
-(21, 'Lain-lain');
+(1, 'Peralatan Kuliah \r\n'),
+(2, 'Aksesoris\r\n'),
+(3, 'Kartu\r\n'),
+(4, 'Elektronik\r\n'),
+(5, 'Pakaian\r\n'),
+(6, 'Kecantikan \r\n'),
+(7, 'Peralatan Makan\r\n'),
+(8, 'Lain-lain\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `detail_barang`
+--
+
+CREATE TABLE `detail_barang` (
+  `id_detail_barang` int(100) NOT NULL,
+  `id_barang` int(10) NOT NULL,
+  `nama_barang` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -106,15 +105,16 @@ CREATE TABLE `pengambilan` (
 --
 
 CREATE TABLE `temuan` (
+  `id_temuan` int(11) NOT NULL,
   `no_laporan` varchar(100) NOT NULL,
   `id_barang` int(10) NOT NULL,
   `id_user` varchar(100) NOT NULL,
   `tgl_temuan` date NOT NULL,
   `lokasi_penemuan` varchar(100) NOT NULL,
   `deskripsi` varchar(256) NOT NULL,
-  `nama_barang` varchar(100) NOT NULL,
   `foto_barang` varchar(100) NOT NULL,
-  `status` int(1) NOT NULL
+  `status` int(1) NOT NULL,
+  `id_lokasi` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -204,6 +204,13 @@ ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
+-- Indexes for table `detail_barang`
+--
+ALTER TABLE `detail_barang`
+  ADD PRIMARY KEY (`id_detail_barang`),
+  ADD KEY `id_barang` (`id_barang`);
+
+--
 -- Indexes for table `lokasi`
 --
 ALTER TABLE `lokasi`
@@ -252,6 +259,11 @@ ALTER TABLE `user_token`
 --
 ALTER TABLE `barang`
   MODIFY `id_barang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `detail_barang`
+--
+ALTER TABLE `detail_barang`
+  MODIFY `id_detail_barang` int(100) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `lokasi`
 --
