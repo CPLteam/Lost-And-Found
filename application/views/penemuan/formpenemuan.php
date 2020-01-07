@@ -1,22 +1,36 @@
-	<center>
-		<h1>Form Penemuan</h1>
-	</center>
-	<script type="text/javascript">
-		$("#tgl_temuan").datepicker({
-			format: 'yyyy-mm-dd',
-			autoclose: true
-		});
-	</script>
+<style type="text/css">
+	.penemuan {
+		margin: 10px auto;
+		width: 900px;
+		padding: 5px;
+		/* border: 1px solid #ccc; */
+		/* background: white; */
+	}
+</style>
+
+<center>
+	<h1>Form Penemuan</h1>
+</center>
+<script type="text/javascript">
+	$("#tgl_temuan").datepicker({
+		format: 'yyyy-mm-dd',
+		autoclose: true
+	});
+</script>
+
+
+<div class="penemuan">
 	<h1>&nbsp;</h1>
+
 	<?= form_open_multipart('penemuan/add_action'); ?>
-	<table cellspacing="1" cellpadding="1">
+	<table cellspacing="2" cellpadding="2">
 		<tr>
 			<td>No. Laporan</td>
 			<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
 			<td><input readonly name="no_laporan" id="no_laporan" class="form-control" value="<?= $this->No_urut->buat_no_laporan() ?>"></td>
 		</tr>
 		<tr>
-			<td>Jenis Barang</td>
+			<td>Nama Barang</td>
 			<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
 			<td>
 				<select name="id_barang" class="form-control">
@@ -102,7 +116,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Deskripsi</td>
+			<td>Deskripsi Barang</td>
 			<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
 			<td><input type="text" name="deskripsi" id="deskripsi" class="form-control" value="<?= set_value('deskripsi'); ?>"></td>
 		</tr>
@@ -112,20 +126,15 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Nama Barang</td>
-			<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
-			<td><input type="text" name="nama_barang" id="nama_barang" class="form-control" value="<?= set_value('nama_barang'); ?>"></td>
-		</tr>
-		<tr>
 			<td colspan=3>
 				<h1></h1>
 			</td>
 		</tr>
 		<!-- <tr>
-				<td>Foto Barang</td>
-				<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
-				<td><input type="text" name="foto_barang" class="form-control"></td>
-			</tr> -->
+					<td>Foto Barang</td>
+					<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
+					<td><input type="text" name="foto_barang" class="form-control"></td>
+				</tr> -->
 		<tr>
 			<td>Foto Barang</td>
 			<td>&emsp;&emsp;&emsp;:&emsp;&emsp;&emsp;</td>
@@ -143,4 +152,4 @@
 		</tr>
 	</table>
 	<?= form_close(); ?>
-	</div>
+</div>
