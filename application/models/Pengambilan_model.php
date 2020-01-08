@@ -19,7 +19,7 @@ class Pengambilan_model extends CI_Model
 		$this->db->insert('pengambilan', $data);
 	}
 
- 	/*function get_laporan()
+ 	function get_laporan()
 	{
 		$results = $this->db->select('no_laporan, nama_barang')->get('temuan')->result_array();
 
@@ -29,5 +29,5 @@ class Pengambilan_model extends CI_Model
 		}
 		$laporan[''] = 'Pilih No Laporan'
 		return $laporan;
-	}*/
+	}
 }
