@@ -19,9 +19,15 @@ class Pengambilan_model extends CI_Model
 		$this->db->insert('pengambilan', $data);
 	}
 
-	function get_laporan($nomor)
+ 	/*function get_laporan()
 	{
-		$query = $this->db->get_where('temuan', array('get_nolaporan' => $nomor));
-		return $query;
-	}
+		$results = $this->db->select('no_laporan, nama_barang')->get('temuan')->result_array();
+
+		$laporan = array();
+		foreach($results as $result){
+			$laporan[$result['no_laporan']] = $result['nama_barang'];
+		}
+		$laporan[''] = 'Pilih No Laporan'
+		return $laporan;
+	}*/
 }
