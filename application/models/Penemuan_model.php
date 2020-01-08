@@ -16,6 +16,9 @@ class Penemuan_model extends CI_Model
 
     function getAllPenemuan()
     {
+        $this->db->select("temuan.*, detail_barang.nama_barang as nama_barang, barang.jenis_barang as jenis_barang");
+        $this->db->join("detail_barang", "detail_barang.id_detail_barang = temuan.id_detail_barang", "left");
+        $this->db->join("barang", "barang.id_barang = temuan.id_barang", "left");
         return $this->db->get('temuan')->result_array();
     }
 
