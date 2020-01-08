@@ -7,8 +7,6 @@
 
 	<?= anchor(site_url('pengambilan/add'), 'Tambah Baru', 'class="btn btn-primary" data-toggle="modal" data-target="#modelId"');  ?>
 
-	<?php  // echo anchor(site_url('pengambilan/add'), 'Tambah Baru', 'class="btn btn-primary"'); 
-	?>
 
 	<hr>
 
@@ -70,7 +68,9 @@
 				<div class="form-group">
 					<label for="no_laporan">No Laporan</label>
 					<select class="form-control" name="no_laporan" id="no_laporan" required>
-						<?php foreach ($pengambilan as $row) : ?>
+						<?php
+						$sql = $this->db->get('temuan');
+						foreach ($sql->result() as $row) : ?>
 							<option><?php echo $row->no_laporan; ?></option>
 						<?php endforeach; ?>
 					</select>
@@ -88,6 +88,7 @@
 					<input type="file" class="form-control" name="foto_pengambil" id="foto_pengambil" value="<?= set_value('foto_pengambil'); ?>">
 				</div>
 				<div class="modal-footer">
+					<input type="hidden" name="id_ambil" value="<?= set_value('id_ambil'); ?>">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
 					<button type="submit" class="btn btn-primary">Simpan</button>
 				</div>

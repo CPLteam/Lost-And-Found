@@ -11,12 +11,6 @@
 <center>
 	<h1>Form Penemuan</h1>
 </center>
-<script type="text/javascript">
-	$("#tgl_temuan").datepicker({
-		format: 'yyyy-mm-dd',
-		autoclose: true
-	});
-</script>
 
 
 <div class="penemuan">
@@ -29,7 +23,7 @@
 			<input readonly name="no_laporan" id="no_laporan" class="form-control" value="<?= $this->No_urut->buat_no_laporan() ?>">
 		</div>
 		<div class="form-group">
-			<label for="nama_barang">Nama Barang <?= form_error('id_barang') ?></label>
+			<label for="jenis_barang">Jenis Barang <?= form_error('id_barang') ?></label>
 			<select name="id_barang" class="form-control">
 				<?php
 				$sql = $this->db->get('barang');
@@ -43,12 +37,26 @@
 			</select>
 		</div>
 		<div class="form-group">
+			<label for="nama_barang">Nama Barang <?= form_error('id_detail_barang') ?></label>
+			<select name="id_detail_barang" class="form-control">
+				<?php
+				$sql = $this->db->get('detail_barang');
+				foreach ($sql->result() as $row) {
+				?>
+					<option value="<?= $row->id_detail_barang ?>"><?= $row->nama_barang ?></option>
+
+				<?php
+				}
+				?>
+			</select>
+		</div>
+		<div class="form-group">
 			<label for="username">Username</label>
 			<input readonly name="id_user" id="id_user" class="form-control" value="<?= $user['username'] ?>">
 		</div>
 		<div class="form-group">
 			<label for="tgl_temuan">Tanggal Temuan</label>
-			<input type="text" name="tgl_temuan" id="tgl_temuan" class="form-control " value="<?= set_value('tgl_temuan'); ?>">
+			<input type="date" name="tgl_temuan" id="tgl_temuan" class="form-control " value="<?= set_value('tgl_temuan'); ?>">
 		</div>
 		<div class="form-group">
 			<label for="lokasi_penemuan">Lokasi Penemuan</label>

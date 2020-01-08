@@ -58,7 +58,7 @@ class Pengambilan extends CI_Controller
 		}
 
 		$data = array(
-			'id_ambil' => uniqid(),
+			'id_ambil' => $this->input->post('id_ambil', true),
 			'no_laporan' => $this->input->post('no_laporan', true),
 			'nama_pengambil' => $this->input->post('nama_pengambil', true),
 			'no_hp' => $this->input->post('no_hp', true),

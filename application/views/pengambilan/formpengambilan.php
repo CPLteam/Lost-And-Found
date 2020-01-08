@@ -19,7 +19,7 @@
 				<?= form_open_multipart('pengambilan/add_action'); ?>
 				<div class="form-group">
 					<label for="no_laporan">No Laporan</label>
-					<?php echo form_dropdown('laporan', $laporan, '';?>
+					<?php echo form_dropdown('laporan', $laporan, ''); ?>
 				</div>
 				<div class="form-group">
 					<label for="nama_pengambil">Nama Pengambil</label>
