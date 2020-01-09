@@ -8,6 +8,7 @@ class Pengambilan extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('pengambilan_model');
+		$this->load->model('No_urut');
 		$this->load->library('form_validation');
 	}
 
@@ -21,6 +22,7 @@ class Pengambilan extends CI_Controller
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('pengambilan/index');
+		$this->load->view('templates/modal', $data);
 		$this->load->view('templates/footer', $data);
 		$this->load->view('templates/auth_footer');
 	}
