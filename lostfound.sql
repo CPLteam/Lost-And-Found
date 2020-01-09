@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2020 at 03:53 PM
+-- Generation Time: Jan 09, 2020 at 05:13 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -167,6 +167,13 @@ CREATE TABLE `temuan` (
   `id_lokasi` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `temuan`
+--
+
+INSERT INTO `temuan` (`id_temuan`, `no_laporan`, `id_barang`, `id_detail_barang`, `id_user`, `tgl_temuan`, `lokasi_penemuan`, `deskripsi`, `foto_barang`, `status`, `id_lokasi`) VALUES
+(3, '201901207001', 2, 4, '5dfa69fc8a6d7', '2020-01-09', 'Dekat Tiang', 'Helm KYT', 'toto.jpg', 0, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -188,10 +195,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `id_level`, `nama`, `username`, `email`, `password`, `is_active`) VALUES
-('5dfa69fc8a6d7', 1, 'Muhammad Ichsan Prayoga Putra', 'ican admin', 'ichsan.prayoga21@gmail.com', '$2y$10$H/E93ASjyhAJnI0nzBMJUOjr/1PqbYOKfLiTpqAdjOwUPAghnzyTm', 1),
+('5dfa69fc8a6d7', 1, 'Muhammad Ichsan Prayoga Putra', 'ichsan_prayoga', 'ichsan.prayoga21@gmail.com', '$2y$10$H/E93ASjyhAJnI0nzBMJUOjr/1PqbYOKfLiTpqAdjOwUPAghnzyTm', 1),
 ('5dfaf645a13ca', 1, 'bro', 'brobro', 'bro@gmail.com', '$2y$10$wHI0yWzWvcpy4hHM/UZ27eaTe4Mik7f1/XInedZkGw62VvL7Ia6Le', 0),
 ('5dfb0baabec42', 1, 'Galih Adiguna', 'galihadgn', 'gadiguna@gmail.com', '$2y$10$XeX8q04nWh0N/FFAO10tp.1/TVFok16yBOtKupYBVgKw.c01kBO..', 1),
-('5e15b98044274', 1, 'Nugraha Purnama Aji', 'nugrahaji27', 'nugrahaaji8821@gmail.com', '$2y$10$bTYeecY7S1F5mrI.ffFdguqJhScdWRE/2EtKCMtiJhIKgEI1nywNy', 1);
+('5e15b98044274', 1, 'Nugraha Purnama Aji', 'nugrahaji27', 'nugrahaaji8821@gmail.com', '$2y$10$bTYeecY7S1F5mrI.ffFdguqJhScdWRE/2EtKCMtiJhIKgEI1nywNy', 1),
+('5e174e395e933', 1, 'Aglabi Faskhia Yorgi', 'Abi918', 'mieayampangsit21@gmail.com', '$2y$10$3F0ZnUxd6eXXbylRCbGnnuLV642WqgdxxKao21eqkJhlwjmzqKBsO', 1);
 
 -- --------------------------------------------------------
 
@@ -224,26 +232,6 @@ CREATE TABLE `user_token` (
   `token` varchar(128) NOT NULL,
   `date_created` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_token`
---
-
-INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
-(2, 'ichsan.prayoga21@gmail.co', 'R4bpm4fk+amtAoVNqzaF2Lo1P6OR0QJ1d3a6sc4Mxhk=', 1576691465),
-(3, 'ichsan.prayoga21@gmail.co', '7s7eM07PC/iEARWuoec2uPsE9baOt4aRaiOA2Sfdpqc=', 1576691508),
-(4, 'gadiguna@gmail.com', 'tz5VSpLLRJCP/yfi/tQDsG3poYL21R7CQWxBRiYccrY=', 1576727891),
-(5, 'gadiguna@gmail.com', 'GNuD2+aNiByZcTDrmVdLg+/mjlbeRTSRTOHo2bcMLtE=', 1576727963),
-(6, 'bro@gmail.com', 'f9BLL61XPraEH+1ly5H+eJy1DfAKwMjpggodhIC4vFw=', 1576728133),
-(7, 'gadiguna@gmail.com', '+Yz63xcuzvvew1mqqeLsUnoGo7cd3nMK7vZdRiaQ0Ok=', 1576728393),
-(8, 'gadiguna@gmail.com', 'F3UgaFmskmJ1Q6GH2fgLUAW71kOcMbNQ5oz0pVYO/0o=', 1576729292),
-(9, 'gadiguna@gmail.com', '3Ikvv3LYgBxf+Pu3tq0EEbMnI+NWB8hOJtrYMH80+5I=', 1576729656),
-(10, 'gadiguna@gmail.com', 'LFyuRHZwNKpZ5gMxF9MM8pXYTa+/CVUMmO333PhwgzY=', 1576730814),
-(11, 'gadiguna@gmail.com', 'Fa1Jj4Ac2Lxz2eyo8bCy0Hui9PxalOmewzWAusXqq+E=', 1576731342),
-(12, 'gadiguna@gmail.com', 'oddUOXsOOxE+xTPxWm4vT0BhkHDg/mMsWJTXi9IHlBk=', 1576732644),
-(13, 'gadiguna@gmail.com', '8BEPpKgUwM6F8a6sYwDEvFEmUMYpihbng+cJ43AxUEg=', 1576732955),
-(14, 'gadiguna@gmail.com', 'XU7Ktn+Jgn8v08McVoNSH4UX+F1ClJ8dBIXrFXI41FM=', 1576733610),
-(15, 'nugrahaaji8821@gmail.com', 'G+0W+jjrmtzl5uNfyO0xye8lABT965O5+Qiu6SYLU6I=', 1578482048);
 
 --
 -- Indexes for dumped tables
@@ -331,7 +319,7 @@ ALTER TABLE `lokasi`
 -- AUTO_INCREMENT for table `temuan`
 --
 ALTER TABLE `temuan`
-  MODIFY `id_temuan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_temuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_level`
@@ -343,7 +331,7 @@ ALTER TABLE `user_level`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
