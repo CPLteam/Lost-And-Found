@@ -16,15 +16,16 @@
                     <thead class="table table-info text-center text-gray-800">
                         <tr>
                             <th scope="col">No Laporan</th>
-                            <th scope="col">Id Barang</th>
-                            <th scope="col">Id User</th>
-                            <th scope="col">Tanggal temuan</th>
-                            <th scope="col">Lokasi temuan</th>
-                            <th scope="col">Deskripsi</th>
-                            <th scope="col">Nama barang</th>
+                            <th scope="col">Id User (Username)</th>
+                            <th scope="col">Tanggal Temuan</th>
+                            <th scope="col">Jenis Barang</th>
+                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Deskripsi Barang</th>
+                            <th scope="col">Lokasi Temuan (Gedung)</th>
+                            <th scope="col">Deskripsi Lokasi</th>
                             <th scope="col">Foto Barang</th>
-                            <th scope="col">Aksi</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="text-gray-800">
@@ -34,28 +35,32 @@
                                     <?= $temu['no_laporan'] ?>
                                 </td>
                                 <td>
-                                    <?= $temu['id_barang'] ?>
-                                </td>
-                                <td>
                                     <?= $temu['id_user'] ?>
+                                    <br />
+                                    (<?= $temu['username'] ?>)
                                 </td>
                                 <td>
                                     <?= $temu['tgl_temuan'] = date('d F Y'); ?>
                                 </td>
                                 <td>
-                                    <?= $temu['lokasi_penemuan'] ?>
-                                </td>
-                                <td>
-                                    <?= $temu['deskripsi'] ?>
+                                    <?= $temu['jenis_barang'] ?>
                                 </td>
                                 <td>
                                     <?= $temu['nama_barang'] ?>
                                 </td>
                                 <td>
-                                    <img src="<?= base_url(); ?>assets/img/<?= $temu['foto_barang'] ?>" width="90" height="110">
+                                    <?= $temu['deskripsi'] ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" onclick="return confirm('Anda yakin ingin di hapus?')">Hapus</a>
+                                    <?= $temu['lantai'] ?>
+                                    <br />
+                                    (<?= $temu['gedung'] ?>)
+                                </td>
+                                <td>
+                                    <?= $temu['lokasi_penemuan'] ?>
+                                </td>
+                                <td>
+                                    <img src="<?= base_url(); ?>assets/img/<?= $temu['foto_barang'] ?>" width="90" height="110">
                                 </td>
                                 <td>
                                     <!-- <a href=""> -->
@@ -80,6 +85,9 @@
                                     }
                                     ?>
                                     <!-- </a> -->
+                                </td>
+                                <td>
+                                    <a href="<?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" onclick="return confirm('Anda yakin ingin di hapus?')">Hapus</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

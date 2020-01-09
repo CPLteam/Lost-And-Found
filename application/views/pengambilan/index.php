@@ -20,7 +20,7 @@
 							<th scope="col">No Laporan</th>
 							<th scope="col">Nama Pengambil</th>
 							<th scope="col">No HP</th>
-							<th scope="col">Tanggal temuan</th>
+							<th scope="col">Tanggal Temuan</th>
 							<th scope="col">Foto Pengambil</th>
 						</tr>
 					</thead>

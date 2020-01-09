@@ -4,16 +4,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Penemuan extends CI_Controller
 {
-
-
     public function __construct()
     {
         parent::__construct();
         $this->load->model('Penemuan_model');
         $this->load->model('No_urut');
         $this->load->library('form_validation');
-    }
 
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+    }
 
     public function index()
     {
