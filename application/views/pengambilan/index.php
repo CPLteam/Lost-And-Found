@@ -71,7 +71,9 @@
 						<?php
 						$sql = $this->db->get('temuan');
 						foreach ($sql->result() as $row) : ?>
-							<option><?php echo $row->no_laporan; ?></option>
+							<option><?php if ($row->status == 0) {
+										echo $row->no_laporan;
+									} ?></option>
 						<?php endforeach; ?>
 					</select>
 				</div>

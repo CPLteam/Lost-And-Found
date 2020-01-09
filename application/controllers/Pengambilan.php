@@ -29,7 +29,6 @@ class Pengambilan extends CI_Controller
 	{
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['title'] = 'Lost & Found - Formulir Pengambilan';
-		$data['laporan'] = $this->Pengambilan_model->get_laporan();
 		$this->load->view('templates/auth_header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);

@@ -45,6 +45,7 @@ class Penemuan extends CI_Controller
         $this->add();
         $now = date('Y-m-d');
 
+
         $foto_barang = $_FILES['foto_barang'];
         if ($foto_barang == '') {
         } else {
@@ -60,6 +61,11 @@ class Penemuan extends CI_Controller
                 $foto_barang = $this->upload->data('file_name');
             }
         }
+
+        $nama_file = uniqid() . $config['allowed_types'];
+        $direktori = base_url('assets/img');
+        $tempat = $direktori . $nama_file;
+        $capture = file_put_contents($foto_barang, $tempat);
 
         // $no_laporan = ;
         // $id_barang = ;
