@@ -4,7 +4,7 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">List Temuan Barang</h1>
 
-    <?= anchor(site_url('penemuan/add'), 'Tambah Baru', 'class="btn btn-primary" data-toggle="modal" data-target="#modelId"');  ?>
+    <?= anchor(site_url('penemuan/add'), 'Tambah Baru', 'class="btn btn-primary" data-toggle="modal" data-target="#modelTemuan"');  ?>
 
     <hr>
 
@@ -72,7 +72,7 @@
                                     if ($temu['status'] == 0) {
                                     ?>
                                         <!-- <button type="button" class="btn btn-danger">Belum Diambil</button> -->
-                                        <?= anchor(site_url('pengambilan/add'), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modelPengambilan"');  ?>
+                                        <?= anchor(site_url('pengambilan/add'), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modelstatusPengambilan"');  ?>
                                     <?php
                                     } else {
 
