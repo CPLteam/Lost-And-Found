@@ -18,7 +18,7 @@
 </div>
 
 <!-- Tambah Temuan Modal-->
-<div class="modal fade" id="modalTemuan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modelTemuan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -37,7 +37,7 @@
 
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input readonly name="id_user" id="id_user" class="form-control" value="<?= $user['username'] ?>">
+                        <input readonly name="id_user" id="id_user" class="form-control" value="<?= $user['id_user'] ?>">
                     </div>
 
                     <div class="form-group">
