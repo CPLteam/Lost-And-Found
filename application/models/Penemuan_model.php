@@ -22,6 +22,26 @@ class Penemuan_model extends CI_Model
         return $this->db->get('temuan')->result_array();
     }
 
+    function fetch_barang()
+    {
+        $this->db->order_by('jenis_barang', 'ASC');
+        $query = $this->db->get('barang');
+        return $query->result();
+    }
+
+    function fetch_detail($id_barang)
+    {
+        $this->db->where('id_barang', $id_barang);
+        $this->db->order_by('nama_barang', 'ASC');
+        $query = $this->db->get('detail_barang');
+        $output = '<option value="">Pilih Nama Barang</option>';
+        foreach($query->result() as $row)
+        {
+            $output .= '<option value "'.$row->id_detail_barang.'">'.$row->nama_barang.'</option>';
+        }
+        return $output;
+    }
+
     function input_data($data)
     {
         $this->db->insert($this->table, $data);
