@@ -47,7 +47,7 @@
 
                     <div class="form-group">
                         <label for="jenis_barang">Jenis Barang <?= form_error('id_barang') ?></label>
-                        <select name="id_barang" class="form-control">
+                        <select name="id_barang" id="id_barang" class="form-control">
                             <?php
                             $sql = $this->db->get('barang');
                             foreach ($sql->result() as $row) {

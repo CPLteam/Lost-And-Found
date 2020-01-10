@@ -80,7 +80,6 @@
                                         <?= anchor(site_url('pengambilan/add'), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modelstatusPengambilan"');  ?>
                                     <?php
                                     } else {
-
                                         echo '<button type="button" class="btn btn-success">Sudah Diambil</button>';
                                     }
                                     ?>

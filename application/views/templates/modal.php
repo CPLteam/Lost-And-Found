@@ -1,42 +1,66 @@
-<!-- Modal -->
+<!-- Tambah Temuan Modal-->
 <div class="modal fade" id="modelTemuan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Form Penemuan</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Form Penemuan</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
             <div class="modal-body">
                 <?= form_open_multipart('penemuan/add_action'); ?>
+
                 <div class="form-group">
                     <label for="no_laporan">No. Laporan</label>
                     <input readonly name="no_laporan" id="no_laporan" class="form-control" value="<?= $this->No_urut->buat_no_laporan() ?>">
                 </div>
-                <div class="form-group">
-                    <label for="jenis_barang">Jenis Barang <?= form_error('id_barang') ?></label>
-                    <select name="barang" id="barang" class="form-control">
-                        <?php
-                            //$sql = $this->db->get('barang');
-                            foreach ($barang as $row) 
-                            {
-                                echo '<option value="'.$row->id_barang.'">'.$row->jenis_barang.'</option>';
-                            }
-                        ?>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="nama_barang">Nama Barang <?= form_error('id_detail_barang') ?></label>
-                    <select name="detail_barang" id= "detail_barang"class="form-control">
-                            <option value="">Pilih Nama Barang</option>
-                    </select>
-                </div>
+
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input readonly name="id_user" id="id_user" class="form-control" value="<?= $user['username'] ?>">
+                    <input readonly name="id_user" id="id_user" class="form-control" value="<?= $user['id_user'] ?>">
                 </div>
+
                 <div class="form-group">
                     <label for="tgl_temuan">Tanggal Temuan</label>
                     <input type="date" name="tgl_temuan" id="tgl_temuan" class="form-control" value="<?= set_value('tgl_temuan'); ?>">
                 </div>
+
+                <div class="form-group">
+                    <label for="jenis_barang">Jenis Barang <?= form_error('id_barang') ?></label>
+                    <select name="id_barang" id="id_barang" class="form-control">
+                        <?php
+                        $sql = $this->db->get('barang');
+                        foreach ($sql->result() as $row) {
+                        ?>
+                            <option value="<?= $row->id_barang ?>"><?= $row->jenis_barang ?></option>
+
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nama_barang">Nama Barang <?= form_error('id_detail_barang') ?></label>
+                    <select name="id_detail_barang" id="id_detail_barang" class="form-control">
+                        <?php
+                        $sql = $this->db->get('detail_barang');
+                        foreach ($sql->result() as $row) {
+                        ?>
+                            <option value="<?= $row->id_detail_barang ?>"><?= $row->nama_barang ?></option>
+
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="deskripsi">Deskripsi Barang</label>
+                    <input type="text" name="deskripsi" id="deskripsi" class="form-control" placeholder="Contoh : Handphone Merek Samsung Warna Biru" value="<?= set_value('deskripsi'); ?>">
+                </div>
+
                 <div class="form-group">
                     <label for="lokasi_penemuan">Lokasi Penemuan</label>
                     <select name="id_lokasi" class="form-control">
@@ -51,35 +75,30 @@
                         ?>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="lokasi_penemuan">Deskripsi Lokasi</label>
-                    <input type="text" name="lokasi_penemuan" id="lokasi_penemuan" class="form-control" value="<?= set_value('lokasi_penemuan'); ?>">
+                    <input type="text" name="lokasi_penemuan" id="lokasi_penemuan" class="form-control" placeholder="Contoh : Disamping Lemari / Diatas Meja" value="<?= set_value('lokasi_penemuan'); ?>">
                 </div>
-                <div class="form-group">
-                    <label for="deskripsi">Deskripsi Barang</label>
-                    <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="<?= set_value('deskripsi'); ?>">
-                </div>
+
                 <div class="form-group">
                     <label for="foto_barang">Foto Barang</label>
                     <input type="file" name="foto_barang" id="foto_barang" class="form-control" value="<?= set_value('foto_barang'); ?>">
-                    <br>
-                    <center>Atau</center>
-                    <div id="my_camera"></div>
-                    <input type=button value="Foto lewat WebCam" onClick="takeSnapshot()">
-                    <input type="hidden" name="foto_barang" class="image-tag" value="<?= set_value('foto_barang'); ?>">
-                    <div id="results">Foto akan terdisplay disini</div>
                 </div>
+
                 <div class="modal-footer">
                     <input type="hidden" name="id_temuan" value="<?= set_value('id_temuan'); ?>">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
+
                 <?= form_close(); ?>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Status Temuan Modal Pengambilan-->
 <div class="modal fade" id="modelstatusPengambilan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -121,7 +140,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Tambah Pengambilan Modal-->
 <div class="modal fade" id="modelPengambilan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -193,31 +212,28 @@
 
     });
 
-	$('#barang').change(function(){
-		var id_barang = $('#barang').val();
-		if(id_barang != '')
-	    {
-			$.ajax({
-				url:"<?php echo base_url();?> penemuan/fetch_detail",
-				method:"POST",
-				data: {id_barang:id_barang},
-				success:function(data)
-				{
-					$('#detail_barang').html(data); 
-				}
-			})
-        }
-        else{
+    $('#barang').change(function() {
+        var id_barang = $('#barang').val();
+        if (id_barang != '') {
+            $.ajax({
+                url: "<?php echo base_url(); ?> penemuan/fetch_detail",
+                method: "POST",
+                data: {
+                    id_barang: id_barang
+                },
+                success: function(data) {
+                    $('#detail_barang').html(data);
+                }
+            })
+        } else {
             $('#detail_barang').html('<option value=""> Pilih Nama Barang </option>');
         }
     });
-    
+
     // $('#detail_barang').change(function(){
     //     var id_detail_barang = $('#detail_barang').val();
     //     if (id_detail_barang != ''){
 
     //     }
     // })
-
-
 </script>
