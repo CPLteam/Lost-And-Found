@@ -10,6 +10,10 @@ class Pengambilan extends CI_Controller
 		$this->load->model('pengambilan_model');
 		$this->load->model('No_urut');
 		$this->load->library('form_validation');
+
+		if (!$this->session->userdata('email')) {
+			redirect('auth');
+		}
 	}
 
 	public function index()
