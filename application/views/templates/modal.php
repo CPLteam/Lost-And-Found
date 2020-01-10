@@ -13,30 +13,20 @@
                 </div>
                 <div class="form-group">
                     <label for="jenis_barang">Jenis Barang <?= form_error('id_barang') ?></label>
-                    <select name="id_barang" class="form-control">
+                    <select name="barang" id="barang" class="form-control">
                         <?php
-                        $sql = $this->db->get('barang');
-                        foreach ($sql->result() as $row) {
-                        ?>
-                            <option value="<?= $row->id_barang ?>"><?= $row->jenis_barang ?></option>
-
-                        <?php
-                        }
+                            //$sql = $this->db->get('barang');
+                            foreach ($barang as $row) 
+                            {
+                                echo '<option value="'.$row->id_barang.'">'.$row->jenis_barang.'</option>';
+                            }
                         ?>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="nama_barang">Nama Barang <?= form_error('id_detail_barang') ?></label>
-                    <select name="id_detail_barang" class="form-control">
-                        <?php
-                        $sql = $this->db->get('detail_barang');
-                        foreach ($sql->result() as $row) {
-                        ?>
-                            <option value="<?= $row->id_detail_barang ?>"><?= $row->nama_barang ?></option>
-
-                        <?php
-                        }
-                        ?>
+                    <select name="detail_barang" id= "detail_barang"class="form-control">
+                            <option value="">Pilih Nama Barang</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -195,11 +185,39 @@
     </div>
 </div>
 
-<script type="text/javascript">
+<script>
     $('#exampleModal').on('show.bs.modal', event => {
         var button = $(event.relatedTarget);
         var modal = $(this);
         // Use above variables to manipulate the DOM
 
     });
+
+	$('#barang').change(function(){
+		var id_barang = $('#barang').val();
+		if(id_barang != '')
+	    {
+			$.ajax({
+				url:"<?php echo base_url();?> penemuan/fetch_detail",
+				method:"POST",
+				data: {id_barang:id_barang},
+				success:function(data)
+				{
+					$('#detail_barang').html(data); 
+				}
+			})
+        }
+        else{
+            $('#detail_barang').html('<option value=""> Pilih Nama Barang </option>');
+        }
+    });
+    
+    // $('#detail_barang').change(function(){
+    //     var id_detail_barang = $('#detail_barang').val();
+    //     if (id_detail_barang != ''){
+
+    //     }
+    // })
+
+
 </script>

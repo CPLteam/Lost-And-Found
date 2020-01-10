@@ -11,16 +11,12 @@ class Penemuan extends CI_Controller
         $this->load->model('No_urut');
         $this->load->library('form_validation');
 
-        if (!$this->session->userdata('email')) {
-            redirect('auth');
-        }
-    }
-
     public function index()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['temuan'] = $this->Penemuan_model->getAllPenemuan();
         $data['title'] = 'Lost & Found - Penemuan';
+        $data['barang'] = $this->Penemuan_model-> fetch_barang();
         $this->load->view('templates/auth_header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -94,6 +90,14 @@ class Penemuan extends CI_Controller
 
         $this->Penemuan_model->input_data($data);
         redirect(site_url('penemuan'));
+    }
+
+    public function fetch_detail()
+    {
+        if($this->input->post('id_barang'))
+        {
+            echo $this->Penemuan_model->fetch_detail($this->input->post('id_barang'));
+        }
     }
 
     public function hapus($no_laporan)

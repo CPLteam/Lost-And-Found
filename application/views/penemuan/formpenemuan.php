@@ -24,30 +24,20 @@
 		</div>
 		<div class="form-group">
 			<label for="jenis_barang">Jenis Barang <?= form_error('id_barang') ?></label>
-			<select name="id_barang" class="form-control">
+			<select name="barang" id ="barang" class="form-control input-lg">
 				<?php
-				$sql = $this->db->get('barang');
-				foreach ($sql->result() as $row) {
-				?>
-					<option value="<?= $row->id_barang ?>"><?= $row->jenis_barang ?></option>
-
-				<?php
+				//$sql = $this->db->get('barang');
+				foreach ($barang as $row) 
+				{
+					echo '<option value="'.$row->id_barang.'">'.$row->jenis_barang.'</option>';
 				}
 				?>
 			</select>
 		</div>
 		<div class="form-group">
 			<label for="nama_barang">Nama Barang <?= form_error('id_detail_barang') ?></label>
-			<select name="id_detail_barang" class="form-control">
-				<?php
-				$sql = $this->db->get('detail_barang');
-				foreach ($sql->result() as $row) {
-				?>
-					<option value="<?= $row->id_detail_barang ?>"><?= $row->nama_barang ?></option>
-
-				<?php
-				}
-				?>
+			<select name="detail_barang" id ="detail_barang" class="form-control input-lg">
+				<option value="">Nama Barang</option>
 			</select>
 		</div>
 		<div class="form-group">
@@ -90,3 +80,22 @@
 	</table>
 	<?= form_close(); ?>
 </div>
+<script>
+$(document).ready(function(){
+	$('#barang').change(function(){
+		var id_barang = $('#barang').val();
+		if(id_barang != '')
+		{
+			$.ajax({
+				url:"<?php echo base_url();?> penemuan/fetch_detail",
+				method:"POST",
+				data: {id_barang:id_barang},
+				success:function(data)
+				{
+					$('#detail_barang').html(data); 
+				}
+			})
+		}
+	})
+})
+</script>
