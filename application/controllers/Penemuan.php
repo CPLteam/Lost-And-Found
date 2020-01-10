@@ -19,8 +19,8 @@ class Penemuan extends CI_Controller
     public function index()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['temuan'] = $this->Penemuan_model->getAllPenemuan();
         $data['title'] = 'Lost & Found - Penemuan';
+        $data['temuan'] = $this->Penemuan_model->getAllPenemuan();
         $data['barang'] = $this->Penemuan_model->fetch_barang();
         $this->load->view('templates/auth_header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -46,8 +46,12 @@ class Penemuan extends CI_Controller
     public function add_action()
     {
         $this->add();
-        $now = date('Y-m-d');
-
+        // $now = date('Y-m-d');
+        $tz = 'Asia/Jakarta';
+        $timestamp = time();
+        $dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
+        $dt->setTimestamp($timestamp); //adjust the object to correct timestamp
+        $now = $dt->format('Y-m-d');
 
         $foto_barang = $_FILES['foto_barang'];
         if ($foto_barang == '') {
@@ -78,6 +82,8 @@ class Penemuan extends CI_Controller
         // $nama_barang = 
         // $deskripsi = 
         // // $foto_barang = $this->input->post('foto_barang');
+
+        // $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data = array(
             'id_temuan' => $this->input->post('id_temuan'),

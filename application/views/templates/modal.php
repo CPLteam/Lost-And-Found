@@ -22,12 +22,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="tgl_temuan">Tanggal Temuan</label>
+                    <label for="tgl_temuan">Tanggal Ditemukan</label>
                     <input type="date" name="tgl_temuan" id="tgl_temuan" class="form-control" value="<?= set_value('tgl_temuan'); ?>">
                 </div>
 
                 <div class="form-group">
-                    <label for="jenis_barang">Jenis Barang <?= form_error('id_barang') ?></label>
+                    <label for="jenis_barang">Jenis Barang Yang Ditemukan <?= form_error('id_barang') ?></label>
                     <select name="id_barang" id="id_barang" class="form-control">
                         <?php
                         $sql = $this->db->get('barang');
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="nama_barang">Nama Barang <?= form_error('id_detail_barang') ?></label>
+                    <label for="nama_barang">Nama Barang Yang Ditemukan <?= form_error('id_detail_barang') ?></label>
                     <select name="id_detail_barang" id="id_detail_barang" class="form-control">
                         <?php
                         $sql = $this->db->get('detail_barang');
@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="deskripsi">Deskripsi Barang</label>
+                    <label for="deskripsi">Deskripsi Barang Yang Ditemukan</label>
                     <input type="text" name="deskripsi" id="deskripsi" class="form-control" placeholder="Contoh : Handphone Merek Samsung Warna Biru" value="<?= set_value('deskripsi'); ?>">
                 </div>
 
@@ -77,12 +77,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="lokasi_penemuan">Deskripsi Lokasi</label>
-                    <input type="text" name="lokasi_penemuan" id="lokasi_penemuan" class="form-control" placeholder="Contoh : Disamping Lemari / Diatas Meja" value="<?= set_value('lokasi_penemuan'); ?>">
+                    <label for="lokasi_penemuan">Deskripsi Lokasi Penemuan</label>
+                    <input type="text" name="lokasi_penemuan" id="lokasi_penemuan" class="form-control" placeholder="Contoh : Diatas Meja / Didalam Ruangan 615 / Di toilet" value="<?= set_value('lokasi_penemuan'); ?>">
                 </div>
 
                 <div class="form-group">
-                    <label for="foto_barang">Foto Barang</label>
+                    <label for="foto_barang">Foto Barang Yang Ditemukan</label>
                     <input type="file" name="foto_barang" id="foto_barang" class="form-control" value="<?= set_value('foto_barang'); ?>">
                 </div>
 
@@ -190,15 +190,15 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Anda Yakin Untuk Keluar?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-body">Pilih "Keluar" di bawah ini jika Anda siap untuk mengakhiri sesi Anda saat ini.</div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>">Logout</a>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>">Keluar</a>
             </div>
         </div>
     </div>

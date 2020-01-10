@@ -1,7 +1,6 @@
 <?php
 
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Penemuan_model extends CI_Model
 {
@@ -15,11 +14,11 @@ class Penemuan_model extends CI_Model
 
     function getAllPenemuan()
     {
-        $this->db->select("temuan.*, detail_barang.nama_barang as nama_barang, barang.jenis_barang as jenis_barang,lokasi.lantai as lantai,lokasi.gedung as gedung,user.username as username");
-        $this->db->join("detail_barang", "detail_barang.id_detail_barang = temuan.id_detail_barang", "left");
-        $this->db->join("barang", "barang.id_barang = temuan.id_barang", "left");
-        $this->db->join("lokasi", "lokasi.id_lokasi = temuan.id_lokasi", "left");
+        $this->db->select("temuan.*, user.username as username, barang.jenis_barang as jenis_barang, detail_barang.nama_barang as nama_barang,lokasi.lantai as lantai,lokasi.gedung as gedung");
         $this->db->join("user", "user.id_user = temuan.id_user", "left");
+        $this->db->join("barang", "barang.id_barang = temuan.id_barang", "left");
+        $this->db->join("detail_barang", "detail_barang.id_detail_barang = temuan.id_detail_barang", "left");
+        $this->db->join("lokasi", "lokasi.id_lokasi = temuan.id_lokasi", "left");
         return $this->db->get('temuan')->result_array();
     }
 
@@ -36,9 +35,8 @@ class Penemuan_model extends CI_Model
         $this->db->order_by('nama_barang', 'ASC');
         $query = $this->db->get('detail_barang');
         $output = '<option value="">Pilih Nama Barang</option>';
-        foreach($query->result() as $row)
-        {
-            $output .= '<option value "'.$row->id_detail_barang.'">'.$row->nama_barang.'</option>';
+        foreach ($query->result() as $row) {
+            $output .= '<option value "' . $row->id_detail_barang . '">' . $row->nama_barang . '</option>';
         }
         return $output;
     }

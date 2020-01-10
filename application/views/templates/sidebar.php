@@ -20,7 +20,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider bg-light">
 
-            <!-- Heading -->
+            <!-- Heading Administrator -->
             <div class="sidebar-heading">
                 Administrator
             </div>
@@ -35,7 +35,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider bg-light">
 
-            <!-- Heading -->
+            <!-- Heading Management-->
             <div class="sidebar-heading">
                 Management
             </div>
@@ -60,13 +60,12 @@
             <!-- Divider -->
             <hr class="sidebar-divider bg-light">
 
-            <!-- Nav Item-->
+            <!-- Nav Item Logout -->
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-fw fa-sign-out-alt"></i>
-                    <span>Logout</span></a>
+                    <span>Keluar</span></a>
             </li>
-
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block bg-light">
