@@ -26,7 +26,7 @@ class Penemuan extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('penemuan/index2');
         $this->load->view('templates/footer', $data);
-        $this->load->view('templates/modal2', $data);
+        $this->load->view('templates/modal', $data);
         $this->load->view('templates/auth_footer');
     }
 
@@ -39,7 +39,6 @@ class Penemuan extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('penemuan/formpenemuan');
         $this->load->view('templates/footer', $data);
-
         $this->load->view('templates/auth_footer');
     }
 
