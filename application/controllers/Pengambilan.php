@@ -8,7 +8,12 @@ class Pengambilan extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('pengambilan_model');
+		$this->load->model('No_urut');
 		$this->load->library('form_validation');
+
+		if (!$this->session->userdata('email')) {
+			redirect('auth');
+		}
 	}
 
 	public function index()
@@ -21,6 +26,7 @@ class Pengambilan extends CI_Controller
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('pengambilan/index');
+		$this->load->view('templates/modal', $data);
 		$this->load->view('templates/footer', $data);
 		$this->load->view('templates/auth_footer');
 	}
@@ -29,7 +35,6 @@ class Pengambilan extends CI_Controller
 	{
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['title'] = 'Lost & Found - Formulir Pengambilan';
-		$data['laporan'] = $this->Pengambilan_model->get_laporan();
 		$this->load->view('templates/auth_header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);

@@ -4,16 +4,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Penemuan extends CI_Controller
 {
-
-
     public function __construct()
     {
         parent::__construct();
         $this->load->model('Penemuan_model');
         $this->load->model('No_urut');
         $this->load->library('form_validation');
-    }
 
+        if (!$this->session->userdata('email')) {
+            redirect('auth');
+        }
+    }
 
     public function index()
     {
@@ -24,6 +25,7 @@ class Penemuan extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('penemuan/index2');
+        $this->load->view('templates/modal', $data);
         $this->load->view('templates/footer', $data);
         $this->load->view('templates/auth_footer');
     }
@@ -45,6 +47,7 @@ class Penemuan extends CI_Controller
         $this->add();
         $now = date('Y-m-d');
 
+
         $foto_barang = $_FILES['foto_barang'];
         if ($foto_barang == '') {
         } else {
@@ -60,6 +63,11 @@ class Penemuan extends CI_Controller
                 $foto_barang = $this->upload->data('file_name');
             }
         }
+
+        $nama_file = uniqid() . $config['allowed_types'];
+        $direktori = base_url('assets/img');
+        $tempat = $direktori . $nama_file;
+        $capture = file_put_contents($foto_barang, $tempat);
 
         // $no_laporan = ;
         // $id_barang = ;
