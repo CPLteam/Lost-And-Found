@@ -34,6 +34,12 @@ class Penemuan_model extends CI_Model
         $this->db->delete('temuan');
     }
 
+    public function cobaSave($no_laporan, $id_user, $tgl_temuan, $id_barang, $id_detail_barang, $deskripsi, $id_lokasi, $lokasi_penemuan, $foto_barang)
+    {
+        $hasil = $this->db->query("INSERT INTO temuan (no_laporan,id_user,tgl_temuan,id_barang,id_detail_barang,deskripsi,id_lokasi,lokasi_penemuan,foto_barang) VALUES ('$no_laporan','$id_user','$tgl_temuan','$id_barang','$id_detail_barang','$deskripsi','$id_lokasi','$lokasi_penemuan','$foto_barang')");
+        return $hasil;
+    }
+
     // public function get_status()
     // {
     //     # code...

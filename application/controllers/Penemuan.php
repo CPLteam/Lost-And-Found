@@ -25,8 +25,8 @@ class Penemuan extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('penemuan/index2');
-        $this->load->view('templates/modal', $data);
         $this->load->view('templates/footer', $data);
+        $this->load->view('templates/modal2', $data);
         $this->load->view('templates/auth_footer');
     }
 
@@ -39,6 +39,7 @@ class Penemuan extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('penemuan/formpenemuan');
         $this->load->view('templates/footer', $data);
+
         $this->load->view('templates/auth_footer');
     }
 
@@ -99,6 +100,23 @@ class Penemuan extends CI_Controller
     public function hapus($no_laporan)
     {
         $this->Penemuan_model->hapusDataPenemuan($no_laporan);
+        redirect('penemuan');
+    }
+
+    public function cobaSimpan()
+    {
+        $data = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $no_laporan = $this->input->post('no_laporan');
+        $id_user = $data['id_user'];
+        $tgl_temuan = $this->input->post('tgl_temuan');
+        $id_barang = $this->input->post('id_barang');
+        $id_detail_barang = $this->input->post('id_detail_barang');
+        $deskripsi = $this->input->post('deskripsi');
+        $id_lokasi = $this->input->post('id_lokasi');
+        $lokasi_penemuan = $this->input->post('lokasi_penemuan');
+        $foto_barang = $this->input->post('foto_barang');
+        $this->Penemuan_model->cobaSave($no_laporan, $id_user, $tgl_temuan, $id_barang, $id_detail_barang, $deskripsi, $id_lokasi, $lokasi_penemuan, $foto_barang);
         redirect('penemuan');
     }
 }

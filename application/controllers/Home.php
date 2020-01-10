@@ -2,6 +2,14 @@
 
 class Home extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        // $this->load->model('Penemuan_model');
+        $this->load->model('No_urut');
+        $this->load->library('form_validation');
+    }
+
     public function index()
     {
         if (!$this->session->userdata('email')) {
@@ -15,6 +23,7 @@ class Home extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('home/index');
         $this->load->view('templates/footer', $data);
+        $this->load->view('templates/modal2');
         $this->load->view('templates/auth_footer');
     }
 }
