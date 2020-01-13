@@ -75,9 +75,4 @@ class Pengambilan extends CI_Controller
 		$this->pengambilan_model->input_data($data);
 		redirect(site_url('pengambilan'));
 	}
-
-	/*public function dropdown_laporan(){
-		$data['laporan'] = $this->Pengambilan_model->get_laporan(); 
-		$this->load->view('pengambilan/formpengambilan', $data); 
-	}*/
 }
