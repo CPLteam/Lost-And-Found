@@ -6,6 +6,7 @@ class Penemuan_model extends CI_Model
 {
 
     public $table = 'temuan';
+    public $id = 'no_laporan';
 
     function __construct()
     {
@@ -22,23 +23,22 @@ class Penemuan_model extends CI_Model
         return $this->db->get('temuan')->result_array();
     }
 
-    function fetch_barang()
+    function get_by_id($id)
     {
-        $this->db->order_by('jenis_barang', 'ASC');
-        $query = $this->db->get('barang');
-        return $query->result();
+        $this->db->where($this->id, $id);
+        return $this->db->get($this->table)->row();
     }
 
-    function fetch_detail($id_barang)
+    function get_jenisBarang()
     {
-        $this->db->where('id_barang', $id_barang);
-        $this->db->order_by('nama_barang', 'ASC');
-        $query = $this->db->get('detail_barang');
-        $output = '<option value="">Pilih Nama Barang</option>';
-        foreach ($query->result() as $row) {
-            $output .= '<option value "' . $row->id_detail_barang . '">' . $row->nama_barang . '</option>';
-        }
-        return $output;
+        $hasil = $this->db->query("SELECT * FROM barang");
+        return $hasil;
+    }
+
+    function get_namaBarang($id_barang)
+    {
+        $hasil = $this->db->query("SELECT * FROM detail_barang WHERE `id_barang` = '$id_barang' ");
+        return $hasil->result();
     }
 
     function input_data($data)
@@ -62,4 +62,10 @@ class Penemuan_model extends CI_Model
     // {
     //     # code...
     // }
+
+    public function pengambilan($id, $data)
+    {
+        $this->db->where($this->id, $id);
+        $this->db->insert('pengambilan', $data);
+    }
 }

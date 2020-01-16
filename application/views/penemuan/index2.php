@@ -108,22 +108,6 @@
 </style>
 
 
-<script language="JavaScript">
-    Webcam.set({
-        width: 490,
-        height: 390,
-        image_format: $config['allowed_types'],
-    });
-
-    Webcam.attach('#my_camera');
-
-    function takeSnapshot() {
-        Webcam.snap(function(data_uri) {
-            $(".image-tag").val(data_uri);
-            document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
-        });
-    }
-</script>
 
 
 </div>

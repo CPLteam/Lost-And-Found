@@ -3,6 +3,8 @@
 class Pengambilan_model extends CI_Model
 {
 
+	public $table = 'pengambilan';
+
 	function __construct()
 	{
 		parent::__construct();
