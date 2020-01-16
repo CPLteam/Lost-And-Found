@@ -39,6 +39,10 @@ class Pengambilan extends CI_Controller
 		$this->load->view('templates/auth_header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
+<<<<<<< HEAD
+=======
+		$this->load->view('pengambilan/formpengambilan');
+>>>>>>> 191f06b2a00da2dd259df4379af1589f8b0c8842
 		$this->load->view('templates/footer', $data);
 		$this->load->view('templates/auth_footer');
 	}
@@ -75,9 +79,4 @@ class Pengambilan extends CI_Controller
 		$this->pengambilan_model->input_data($data);
 		redirect(site_url('pengambilan'));
 	}
-
-	/*public function dropdown_laporan(){
-		$data['laporan'] = $this->Pengambilan_model->get_laporan(); 
-		$this->load->view('pengambilan/formpengambilan', $data); 
-	}*/
 }
