@@ -24,7 +24,13 @@ class No_urut extends CI_Model
             //jika kode belum ada
             $kode = 1;
         }
-        $hariini = date('Ymd');
+        $tz = 'Asia/Jakarta';
+        $timestamp = time();
+        $dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
+        $dt->setTimestamp($timestamp); //adjust the object to correct timestamp
+        $hariini = $dt->format('Ymd');
+
+        // $hariini = date('Ymd');
         $kodemax = str_pad($kode, 4, "0", STR_PAD_LEFT);
         $kodejadi = "$hariini" . $kodemax;
         return $kodejadi;
