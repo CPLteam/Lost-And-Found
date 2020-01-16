@@ -32,6 +32,8 @@ class Pengambilan extends CI_Controller
 		$this->load->view('templates/auth_footer');
 	}
 
+
+
 	public function add()
 	{
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();

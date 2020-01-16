@@ -1,5 +1,33 @@
 <script type="text/javascript" src="<?php echo base_url('assets/vendor/jquery/jquery-3.4.1.js') ?>"></script>
 <script type="text/javascript">
+	// $(document).ready(function() {
+	// 	$('#no_laporan').change(function() {
+	// 		var id = $(this).val();
+	// 		$.ajax({
+	// 			url: "",
+	// 			method: "POST",
+	// 			data: {
+	// 				no_laporan: id,
+	// 			},
+	// 			async: false,
+	// 			dataType: 'json',
+	// 			success: function(data) {
+	// 				var html = '';
+	// 				var i;
+	// 				for (i = 0; i < data.length; i++) {
+	// 					html += '<option value=' + data[i].nama_barang + '>';
+	// 				}
+	// 				$('#deskripsi').html(html);
+	// 			}
+	// 		});
+	// 	});
+
+	// 	// $('#detail_barang').change(function(){
+	// 	//     var id_detail_barang = $('#detail_barang').val();
+	// 	//     if (id_detail_barang != ''){
+
+	// 	//     }
+	// });
 	$('#exampleModal').on('show.bs.modal', event => {
 		var button = $(event.relatedTarget);
 		var modal = $(this);
@@ -25,7 +53,8 @@
 						foreach ($sql->result() as $row) : ?>
 							<option><?php if ($row->status == 0) {
 										echo $row->no_laporan;
-									} ?></option>
+									?> -- <?= $row->deskripsi;
+										} ?></option>
 						<?php endforeach; ?>
 					</select>
 				</div>
