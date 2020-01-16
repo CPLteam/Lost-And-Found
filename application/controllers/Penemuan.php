@@ -83,14 +83,14 @@ class Penemuan extends CI_Controller
         // $deskripsi = 
         // // $foto_barang = $this->input->post('foto_barang');
 
-        // $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $user = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data = array(
             'id_temuan' => $this->input->post('id_temuan'),
             'no_laporan' => $this->input->post('no_laporan'),
             'id_barang' => $this->input->post('id_barang'),
             'id_detail_barang' => $this->input->post('id_detail_barang'),
-            'id_user' => $this->input->post('id_user'),
+            'id_user' => $user['id_user'],
             'tgl_temuan' => $now,
             'id_lokasi' => $this->input->post('id_lokasi'),
             'lokasi_penemuan' => $this->input->post('lokasi_penemuan'),
