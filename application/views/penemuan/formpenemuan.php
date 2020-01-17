@@ -56,7 +56,7 @@
 
 				<div class="form-group">
 					<label for="username">Username</label>
-					<input readonly name="id_user" id="id_user" class="form-control" value="<?= $user['id_user'] ?>">
+					<input readonly name="id_user" id="id_user" class="form-control" value="<?= $user['username'] ?>">
 				</div>
 
 				<div class="form-group">

@@ -21,8 +21,8 @@
                             <th scope="col">Jenis Barang</th>
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Deskripsi Barang</th>
-                            <th scope="col">Lokasi Ditemukan (Gedung)</th>
-                            <th scope="col">Deskripsi Lokasi Ditemukan</th>
+                            <th scope="col">Lokasi Penemuan (Gedung)</th>
+                            <th scope="col">Deskripsi Lokasi Penemuan</th>
                             <th scope="col">Foto Barang</th>
                             <th scope="col">Status</th>
                             <th scope="col">Aksi</th>
