@@ -21,8 +21,8 @@
                             <th scope="col">Jenis Barang</th>
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Deskripsi Barang</th>
-                            <th scope="col">Lokasi Ditemukan (Gedung)</th>
-                            <th scope="col">Deskripsi Lokasi Ditemukan</th>
+                            <th scope="col">Lokasi Penemuan (Gedung)</th>
+                            <th scope="col">Deskripsi Lokasi Penemuan</th>
                             <th scope="col">Foto Barang</th>
                             <th scope="col">Status</th>
                             <th scope="col">Aksi</th>
@@ -108,22 +108,6 @@
 </style>
 
 
-<script language="JavaScript">
-    Webcam.set({
-        width: 490,
-        height: 390,
-        image_format: $config['allowed_types'],
-    });
-
-    Webcam.attach('#my_camera');
-
-    function takeSnapshot() {
-        Webcam.snap(function(data_uri) {
-            $(".image-tag").val(data_uri);
-            document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
-        });
-    }
-</script>
 
 
 </div>
