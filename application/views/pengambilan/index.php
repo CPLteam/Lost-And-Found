@@ -4,10 +4,6 @@
 	<!-- Page Heading -->
 	<h1 class="h3 mb-4 text-gray-800">List Pengambilan Barang</h1>
 
-
-	<?= anchor(site_url('pengambilan/add'), 'Tambah Baru', 'class="btn btn-primary" data-toggle="modal" data-target="#modelPengambilan"');  ?>
-
-
 	<hr>
 
 	<!-- DataTales Example -->

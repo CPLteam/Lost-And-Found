@@ -23,7 +23,7 @@
                     <th scope="col">Deskripsi</th>
                     <th scope="col">Nama barang</th>
                     <th scope="col">Foto Barang</th>
-                    <th scope="col">Aksi Aksi</th>
+                    <th scope="col">Aksi</th>
                     <th scope="col">Status</th>
                 </tr>
             </thead>
@@ -39,21 +39,7 @@
                         <td><?= $temu['nama_barang'] ?></td>
                         <td><img src="<?= base_url();  ?>assets/img/<?= $temu['foto_barang'] ?>" width="90" height="110"></td>
                         <td><a href="<?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" onclick="return confirm('yakin?')">Hapus</a></td>
-                        <td>
-                            <a href="">
-                                <?php
-                                switch ($temu['status']) {
-                                    case 0:
-                                        echo '<button type="button" class="btn btn-danger">Belum Diambil</button>';
-                                        break;
-
-                                    case 1:
-                                        echo '<button type="button" class="btn btn-success">Sudah Diambil</button>';
-                                        break;
-                                }
-                                ?>
-                            </a>
-                        </td>
+                        <td><?= anchor(site_url('pengambilan/add'), 'Barang Diambil', 'class="btn btn-primary" data-toggle="modal" data-target="#modelPengambilan"');  ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
