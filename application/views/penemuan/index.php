@@ -5,14 +5,6 @@
         <?= anchor(site_url('penemuan/add'), 'Tambah Baru', 'class="btn btn-primary" data-toggle="modal" data-target="#modelId"');  ?>
 
         <table class="table">
-            <!-- <ul>
-                <li>
-                    <div class="rounded-circle bg-danger status"></div>&nbsp;Barang Belum Diambil
-                </li>
-                <li>
-                    <div class="rounded-circle bg-success status"></div>&nbsp;Barang Sudah Diambil
-                </li>
-            </ul> -->
             <thead>
                 <tr>
                     <th scope="col">No Laporan</th>
@@ -39,7 +31,7 @@
                         <td><?= $temu['nama_barang'] ?></td>
                         <td><img src="<?= base_url();  ?>assets/img/<?= $temu['foto_barang'] ?>" width="90" height="110"></td>
                         <td><a href="<?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" onclick="return confirm('yakin?')">Hapus</a></td>
-                        <td><?= anchor(site_url('pengambilan/add'), 'Barang Diambil', 'class="btn btn-primary" data-toggle="modal" data-target="#modelPengambilan"');  ?></td>
+                        <td> <?= anchor(site_url('pengambilan/add')), 'Tambah Baru', 'class="btn btn-primary" data-toggle="modal" data-target="#modelId"');?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
