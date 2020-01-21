@@ -54,7 +54,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('pengambilan') ?>">
                     <i class="fas fa-database"></i>
-                    <span>Pengambilan Barang</span></a>
+                    <span>List Barang Diambil</span></a>
             </li>
 
             <!-- Divider -->
