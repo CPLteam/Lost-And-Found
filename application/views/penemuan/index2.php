@@ -35,8 +35,6 @@
                                     <?= $temu['no_laporan'] ?>
                                 </td>
                                 <td>
-                                    <?= $temu['id_user'] ?>
-                                    <br />
                                     (<?= $temu['username'] ?>)
                                 </td>
                                 <td>
