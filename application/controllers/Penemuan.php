@@ -137,53 +137,50 @@ class Penemuan extends CI_Controller
         redirect('penemuan');
     }
 
-    // public function ambil($id)
-    // {
+    public function ambil($id)
+    {
+        $row = $this->Penemuan_model->get_by_id($id);
 
-    //     $
-    //     $row = $this->Pengambilan_model->get_by_id($id);
+        if ($row) {
+            $data = array(
+                'no_laporan' => set_value('no_laporan', $row->no_laporan),
+            );
+            $this->load->view('templates/index2', $data);
+        }
+    }
 
-    //     if ($row) {
-    //         $data = array(
-    //             'id_ambil' => set_value('id_ambil', $row->id_ambil),
-    //             'no_laporan' => set_value('no_laporan', $row->no_laporan),
-    //             'nama_pengambil' => set_value('nama_pengambil', $row->nama_pengambil),
-    //             'no_hp' => set_value('no_hp', $row->no_hp),
-    //         );
-    //     }
-    //     $this->load->view('templates/modal', $data);
-    // }
+    public function ambil_action()
+    {
 
-    // public function ambil_action()
-    // {
-    //     $this->ambil($id);
+        $foto_pengambil = $_FILES['foto_pengambil'];
+        if ($foto_pengambil == '') {
+        } else {
+            $config['upload_path'] = './assets/img';
+            $config['allowed_types'] = 'jpg|png';
 
-    //     $foto_pengambil = $_FILES['foto_pengambil'];
-    //     if ($foto_pengambil == '') {
-    //     } else {
-    //         $config['upload_path'] = './assets/img';
-    //         $config['allowed_types'] = 'jpg|png';
+            $this->load->library('upload', $config);
 
-    //         $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('foto_pengambil')) {
+                echo "Upload Gagal";
+                die();
+            } else {
+                $foto_pengambil = $this->upload->data('file_name');
+            }
+        }
 
-    //         if (!$this->upload->do_upload('foto_pengambil')) {
-    //             echo "Upload Gagal";
-    //             die();
-    //         } else {
-    //             $foto_pengambil = $this->upload->data('file_name');
-    //         }
-    //     }
+        $data = array(
+            'id_ambil' => $this->input->post('id_ambil', true),
+            'no_laporan' => $this->input->post('no_laporan', true),
+            'nama_pengambil' => $this->input->post('nama_pengambil', true),
+            'no_hp' => $this->input->post('no_hp', true),
+            'foto_pengambil' => $foto_pengambil,
 
-    //     $data = array(
-    //         'id_ambil' => $this->input->post('id_ambil', true),
-    //         'no_laporan' => $this->input->post('no_laporan', true),
-    //         'nama_pengambil' => $this->input->post('nama_pengambil', true),
-    //         'no_hp' => $this->input->post('no_hp', true),
-    //         'foto_pengambil' => $foto_pengambil,
-
-    //     );
-
-    //     $this->Pengambilan_model->input_data($data);
-    //     redirect(site_url('pengambilan'));
-    // }
+        );
+        $status = array(
+            'status' => 1
+        );
+        $this->Penemuan_model->update($this->input->post('no_laporan', TRUE), $status);
+        $this->Pengambilan_model->input_data($data);
+        redirect(site_url('penemuan'));
+    }
 }

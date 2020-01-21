@@ -63,9 +63,10 @@ class Penemuan_model extends CI_Model
     //     # code...
     // }
 
-    public function pengambilan($id, $data)
+    function update($id, $status)
     {
+        $this->db->set('status', $status);
         $this->db->where($this->id, $id);
-        $this->db->insert('pengambilan', $data);
+        $this->db->update('temuan', $status);
     }
 }

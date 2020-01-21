@@ -75,6 +75,12 @@ class Pengambilan extends CI_Controller
 		);
 
 		$this->pengambilan_model->input_data($data);
+		if ($this->pengambilan_model->input_data($data) == TRUE) {
+			$sql = $this->db->get('temuan');
+			$row = $sql->result();
+			$row->status = 1;
+			$this->db->update('temuan', $row);
+		}
 		redirect(site_url('pengambilan'));
 	}
 }

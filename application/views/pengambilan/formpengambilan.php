@@ -23,10 +23,10 @@
 						<?php
 						$sql = $this->db->get('temuan');
 						foreach ($sql->result() as $row) : ?>
-							<option><?php if ($row->status == 0) {
-										echo $row->no_laporan;
-									?> -- <?= $row->deskripsi;
-										} ?></option>
+							<option value="<?= $row->no_laporan; ?>"><?php if ($row->id_status == 0) {
+																			echo $row->no_laporan;
+																		?> -- <?= $row->deskripsi;
+																			} ?></option>
 						<?php endforeach; ?>
 					</select>
 				</div>
