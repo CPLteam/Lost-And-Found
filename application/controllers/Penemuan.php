@@ -12,7 +12,6 @@ class Penemuan extends CI_Controller
         $this->load->library('form_validation');
         $this->load->model('Pengambilan_model');
 
-
         if (!$this->session->userdata('email')) {
             redirect('auth');
         }

@@ -16,7 +16,7 @@
                     <thead class="table table-info text-center text-gray-800">
                         <tr>
                             <th scope="col">No Laporan</th>
-                            <th scope="col">Id User Penemu (Username)</th>
+                            <th scope="col">Username Penemu</th>
                             <th scope="col">Tanggal Ditemukan</th>
                             <th scope="col">Jenis Barang</th>
                             <th scope="col">Nama Barang</th>
@@ -35,7 +35,7 @@
                                     <?= $temu['no_laporan'] ?>
                                 </td>
                                 <td>
-                                    (<?= $temu['username'] ?>)
+                                    <?= $temu['username'] ?>
                                 </td>
                                 <td>
                                     <?= $temu['tgl_temuan'] ?>
