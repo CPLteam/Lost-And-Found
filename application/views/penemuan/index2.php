@@ -105,10 +105,8 @@
     }
 </style>
 
-
-
-
 </div>
+<<<<<<< HEAD
 <!-- End of Main Content -->
 
 <!-- Tambah Pengambilan Modal-->
@@ -156,3 +154,6 @@
         </div>
     </div>
 </div>
+=======
+<!-- End of Main Content -->
+>>>>>>> edited by dhean
