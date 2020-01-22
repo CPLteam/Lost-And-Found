@@ -74,7 +74,7 @@
                                     // }
                                     if ($temu['status'] == 0) {
                                     ?>
-                                        <a href="<?= base_url(); ?>penemuan/detail/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" ">BELOM</a>
+                                        <a href="<?= base_url(); ?>penemuan/tes/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" ">BELOM</a>
                                         <!-- <?= anchor(site_url('pengambilan/ambil'), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modelPengambilan"');  ?> -->
 
                                     <?php
