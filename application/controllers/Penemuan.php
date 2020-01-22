@@ -182,4 +182,21 @@ class Penemuan extends CI_Controller
         $this->Pengambilan_model->input_data($data);
         redirect(site_url('penemuan'));
     }
+
+    public function detail($id)
+    {
+        $data['title'] = 'Temuan';
+        $data['temuan'] = $this->Penemuan_model->get_by_id($id);
+        // $this->load->view('templates/auth_header', $data);
+        // $this->load->view('templates/sidebar', $data);
+        // $this->load->view('templates/auth_footer');
+        // $this->load->view('penemuan/detail');
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();;
+        $this->load->view('templates/auth_header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('templates/footer', $data);
+        $this->load->view('templates/logout', $data);
+        $this->load->view('penemuan/detail');
+    }
 }
