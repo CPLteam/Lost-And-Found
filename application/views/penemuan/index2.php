@@ -74,8 +74,8 @@
                                     // }
                                     if ($temu['status'] == 0) {
                                     ?>
-                                        <a href="<?= base_url(); ?>penemuan/detail/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" ">BELOM</a>
-                                        <!-- <?= anchor(site_url('pengambilan/ambil'), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modelPengambilan"');  ?> -->
+                                        <!--<a href="<?= base_url(); ?>penemuan/detail/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" ">BELOM</a>-->
+                                        <?= anchor(site_url('pengambilan/ambil'), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modelPengambilan"');  ?>
 
                                     <?php
                                     } else {
@@ -107,7 +107,6 @@
 </style>
 
 </div>
-<<<<<<< HEAD
 <!-- End of Main Content -->
 
 <!-- Tambah Pengambilan Modal-->
@@ -120,8 +119,8 @@
             <div class="modal-body">
                 <?= form_open_multipart('penemuan/ambil_action'); ?>
                 <div class="form-group">
-                    <label for="no_laporan">No Laporan</label>
-                    <?= $temuan['no_laporan'] ?>
+                    <label for="no_laporan">No Laporan: </label>
+                    <?= $temu['no_laporan'] ?>
                 </div>
                 <div class="form-group">
                     <label for="nama_pengambil">Nama Pengambil</label>
@@ -146,6 +145,3 @@
         </div>
     </div>
 </div>
-=======
-<!-- End of Main Content -->
->>>>>>> edited by dhean
