@@ -74,8 +74,9 @@
                                     // }
                                     if ($temu['status'] == 0) {
                                     ?>
-                                        <!-- <button type="button" class="btn btn-danger">Belum Diambil</button> -->
-                                        <?= anchor(site_url('pengambilan/ambil'), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modelPengambilan"');  ?>
+                                        <a href="<?= base_url(); ?>penemuan/detail/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" ">BELOM</a>
+                                        <!-- <?= anchor(site_url('pengambilan/ambil'), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modelPengambilan"');  ?> -->
+
                                     <?php
                                     } else {
                                         echo '<button type="button" class="btn btn-success">Sudah Diambil</button>';
@@ -84,7 +85,7 @@
                                     <!-- </a> -->
                                 </td>
                                 <td>
-                                    <a href="<?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" onclick="return confirm('Anda yakin ingin di hapus?')">Hapus</a>
+                                    <a href=" <?= base_url(); ?>penemuan/hapus/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" onclick="return confirm('Anda yakin ingin di hapus?')">Hapus</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -120,16 +121,7 @@
                 <?= form_open_multipart('penemuan/ambil_action'); ?>
                 <div class="form-group">
                     <label for="no_laporan">No Laporan</label>
-                    <select class="form-control" name="no_laporan" id="no_laporan" required>
-                        <?php
-                        $sql = $this->db->get('temuan');
-                        foreach ($sql->result() as $row) : ?>
-                            <option value="<?= $row->no_laporan ?>"><?php if ($row->status == 0) {
-                                                                        echo $row->no_laporan;
-                                                                    ?> -- <?= $row->deskripsi;
-                                                                        } ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                    <?= $temuan['no_laporan'] ?>
                 </div>
                 <div class="form-group">
                     <label for="nama_pengambil">Nama Pengambil</label>
