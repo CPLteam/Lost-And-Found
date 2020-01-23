@@ -138,6 +138,8 @@ class Penemuan extends CI_Controller
 
     public function ambil($id)
     {
+
+        $data['temuan'] = $this->Penemuan_model->get_by_id($id);
         $row = $this->Penemuan_model->get_by_id($id);
 
         if ($row) {

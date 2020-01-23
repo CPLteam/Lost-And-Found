@@ -74,10 +74,10 @@
                                     // }
                                     if ($temu['status'] == 0) {
                                     ?>
-                                        <!-- <a href="<?= base_url(); ?>penemuan/tes/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" ">BELOM</a> -->
-                                        <!-- <?= anchor(site_url('pengambilan/ambil'), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modelPengambilan"');  ?> -->
+                                        <a href="<?= base_url(); ?>penemuan/tes/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right">BELOM DIAMBIL</a>
+                                        <!-- <?= anchor(site_url('penemuan/ambil'), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modelPengambilan"');  ?> -->
                                         <!-- <?= anchor(site_url('pengambilan/add' . $temu->no_laporan), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modalPengambilan"');  ?> -->
-                                        <a onclick="ambilConfirm('<?php echo site_url('pengambilan/add/' . $temu['no_laporan']) ?>')" href="#!" class="btn btn-danger"> Belum Diambil</a>
+                                        <!-- <a onclick=" ambilConfirm('<?php echo site_url('pengambilan/add/' . $temu['no_laporan']) ?>')" href="#!" class="btn btn-danger"> Belum Diambil</a> -->
                                     <?php
                                     } else {
                                         echo '<button type="button" class="btn btn-success">Sudah Diambil</button>';
@@ -116,7 +116,7 @@
 
 </div>
 <!-- End of Main Content -->
-
+<!-- <h5> <?= $temuan->no_laporan ?> </h5> -->
 <!-- Tambah Pengambilan Modal-->
 <div class="modal fade" id="modalPengambilan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -127,8 +127,17 @@
             <div class="modal-body">
                 <?= form_open_multipart('penemuan/ambil_action'); ?>
                 <div class="form-group">
-                    <label for="no_laporan">No Laporan: </label>
-                    <?= $temu['no_laporan'] ?>
+                    <label for="no_laporan">No Laporan</label>
+                    <select class="form-control" name="no_laporan" id="no_laporan" required>
+                        <?php
+                        $sql = $this->db->get('temuan');
+                        foreach ($sql->result() as $row) : ?>
+                            <option value="<?= $row->no_laporan; ?>"><?php if ($row->id_status == 0) {
+                                                                            echo $row->no_laporan;
+                                                                        ?> -- <?= $row->deskripsi;
+                                                                            } ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="nama_pengambil">Nama Pengambil</label>
