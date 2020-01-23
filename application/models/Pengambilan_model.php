@@ -19,5 +19,10 @@ class Pengambilan_model extends CI_Model
 	function input_data($data)
 	{
 		$this->db->insert('pengambilan', $data);
+		$id = $data['no_laporan'];
+
+		$this->db->set('status', 1);
+		$this->db->where('no_laporan', $id);
+		$this->db->update('temuan');
 	}
 }
