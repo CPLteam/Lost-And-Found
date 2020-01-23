@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2020 at 05:13 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Waktu pembuatan: 23 Jan 2020 pada 08.01
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang`
+-- Struktur dari tabel `barang`
 --
 
 CREATE TABLE `barang` (
@@ -34,7 +34,7 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `barang`
+-- Dumping data untuk tabel `barang`
 --
 
 INSERT INTO `barang` (`id_barang`, `jenis_barang`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `barang` (`id_barang`, `jenis_barang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_barang`
+-- Struktur dari tabel `detail_barang`
 --
 
 CREATE TABLE `detail_barang` (
@@ -60,7 +60,7 @@ CREATE TABLE `detail_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `detail_barang`
+-- Dumping data untuk tabel `detail_barang`
 --
 
 INSERT INTO `detail_barang` (`id_detail_barang`, `id_barang`, `nama_barang`) VALUES
@@ -100,7 +100,7 @@ INSERT INTO `detail_barang` (`id_detail_barang`, `id_barang`, `nama_barang`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lokasi`
+-- Struktur dari tabel `lokasi`
 --
 
 CREATE TABLE `lokasi` (
@@ -110,7 +110,7 @@ CREATE TABLE `lokasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `lokasi`
+-- Dumping data untuk tabel `lokasi`
 --
 
 INSERT INTO `lokasi` (`id_lokasi`, `lantai`, `gedung`) VALUES
@@ -127,11 +127,11 @@ INSERT INTO `lokasi` (`id_lokasi`, `lantai`, `gedung`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengambilan`
+-- Struktur dari tabel `pengambilan`
 --
 
 CREATE TABLE `pengambilan` (
-  `id_ambil` varchar(100) NOT NULL,
+  `id_ambil` int(100) NOT NULL,
   `no_laporan` varchar(100) NOT NULL,
   `nama_pengambil` varchar(100) NOT NULL,
   `no_hp` varchar(19) NOT NULL,
@@ -140,17 +140,39 @@ CREATE TABLE `pengambilan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengambilan`
+-- Dumping data untuk tabel `pengambilan`
 --
 
 INSERT INTO `pengambilan` (`id_ambil`, `no_laporan`, `nama_pengambil`, `no_hp`, `foto_pengambil`, `tgl_pengambilan`) VALUES
-('', '202001080002', 'Aji', '0812345678', 'Furqon_Triggered.jpg', '0000-00-00 00:00:00'),
-('5e15df25bd9cc', '202001080001', 'Aji', '0812345678', 'Triggered.jpg', '0000-00-00 00:00:00');
+(0, '202001160004', 'Aji', '08123456', '157581217247214.jpg', '0000-00-00 00:00:00'),
+(1, '202001080002', 'Aji', '0812345678', 'Furqon_Triggered.jpg', '0000-00-00 00:00:00'),
+(2, '202001080001', 'Aji', '0812345678', 'Triggered.jpg', '0000-00-00 00:00:00'),
+(3, '202001160011', 'Aji', '0812345678', 'Parfum_Pria_Possess_Man_Eau_de_Toilette_by_Oriflame2.jpg', '0000-00-00 00:00:00'),
+(4, '201901207001', 'Aji', '08123456', '157581217247212.jpg', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `temuan`
+-- Struktur dari tabel `status`
+--
+
+CREATE TABLE `status` (
+  `id_status` int(1) NOT NULL,
+  `nama_status` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `status`
+--
+
+INSERT INTO `status` (`id_status`, `nama_status`) VALUES
+(0, 'Belum Diambil'),
+(1, 'Sudah Diambil');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `temuan`
 --
 
 CREATE TABLE `temuan` (
@@ -168,16 +190,19 @@ CREATE TABLE `temuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `temuan`
+-- Dumping data untuk tabel `temuan`
 --
 
 INSERT INTO `temuan` (`id_temuan`, `no_laporan`, `id_barang`, `id_detail_barang`, `id_user`, `tgl_temuan`, `lokasi_penemuan`, `deskripsi`, `foto_barang`, `status`, `id_lokasi`) VALUES
-(3, '201901207001', 2, 4, '5dfa69fc8a6d7', '2020-01-09', 'Dekat Tiang', 'Helm KYT', 'toto.jpg', 0, 6);
+(3, '201901207001', 2, 4, '5dfa69fc8a6d7', '2020-01-09', 'Dekat Tiang', 'Helm KYT', 'toto.jpg', 1, 6),
+(10, '202001160004', 6, 27, '5e15b98044274', '2020-01-16', 'toilet', 'Parfum Oriflame', 'Parfum_Pria_Possess_Man_Eau_de_Toilette_by_Oriflame.jpg', 1, 1),
+(11, '202001160011', 1, 1, '5e15b98044274', '2020-01-16', 'toilet', 'Pulpen Joyko', 'Parfum_Pria_Possess_Man_Eau_de_Toilette_by_Oriflame1.jpg', 0, 2),
+(12, '202001220012', 4, 12, '5e15b98044274', '2020-01-22', 'Lantai 6', 'Hape Baru', '157581217247215.jpg', 0, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -191,7 +216,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `id_level`, `nama`, `username`, `email`, `password`, `is_active`) VALUES
@@ -204,7 +229,7 @@ INSERT INTO `user` (`id_user`, `id_level`, `nama`, `username`, `email`, `passwor
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_level`
+-- Struktur dari tabel `user_level`
 --
 
 CREATE TABLE `user_level` (
@@ -213,7 +238,7 @@ CREATE TABLE `user_level` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_level`
+-- Dumping data untuk tabel `user_level`
 --
 
 INSERT INTO `user_level` (`id_level`, `level`) VALUES
@@ -223,7 +248,7 @@ INSERT INTO `user_level` (`id_level`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_token`
+-- Struktur dari tabel `user_token`
 --
 
 CREATE TABLE `user_token` (
@@ -238,33 +263,39 @@ CREATE TABLE `user_token` (
 --
 
 --
--- Indexes for table `barang`
+-- Indeks untuk tabel `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indexes for table `detail_barang`
+-- Indeks untuk tabel `detail_barang`
 --
 ALTER TABLE `detail_barang`
   ADD PRIMARY KEY (`id_detail_barang`),
   ADD KEY `id_barang` (`id_barang`);
 
 --
--- Indexes for table `lokasi`
+-- Indeks untuk tabel `lokasi`
 --
 ALTER TABLE `lokasi`
   ADD PRIMARY KEY (`id_lokasi`);
 
 --
--- Indexes for table `pengambilan`
+-- Indeks untuk tabel `pengambilan`
 --
 ALTER TABLE `pengambilan`
   ADD PRIMARY KEY (`id_ambil`),
   ADD KEY `no_laporan` (`no_laporan`);
 
 --
--- Indexes for table `temuan`
+-- Indeks untuk tabel `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`id_status`);
+
+--
+-- Indeks untuk tabel `temuan`
 --
 ALTER TABLE `temuan`
   ADD PRIMARY KEY (`id_temuan`),
@@ -275,76 +306,82 @@ ALTER TABLE `temuan`
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`),
   ADD KEY `id_level` (`id_level`);
 
 --
--- Indexes for table `user_level`
+-- Indeks untuk tabel `user_level`
 --
 ALTER TABLE `user_level`
   ADD PRIMARY KEY (`id_level`);
 
 --
--- Indexes for table `user_token`
+-- Indeks untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `barang`
+-- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
   MODIFY `id_barang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `detail_barang`
+-- AUTO_INCREMENT untuk tabel `detail_barang`
 --
 ALTER TABLE `detail_barang`
   MODIFY `id_detail_barang` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT for table `lokasi`
+-- AUTO_INCREMENT untuk tabel `lokasi`
 --
 ALTER TABLE `lokasi`
   MODIFY `id_lokasi` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `temuan`
+-- AUTO_INCREMENT untuk tabel `status`
 --
-ALTER TABLE `temuan`
-  MODIFY `id_temuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `status`
+  MODIFY `id_status` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `user_level`
+-- AUTO_INCREMENT untuk tabel `temuan`
+--
+ALTER TABLE `temuan`
+  MODIFY `id_temuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT untuk tabel `user_level`
 --
 ALTER TABLE `user_level`
   MODIFY `id_level` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `user_token`
+-- AUTO_INCREMENT untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `detail_barang`
+-- Ketidakleluasaan untuk tabel `detail_barang`
 --
 ALTER TABLE `detail_barang`
   ADD CONSTRAINT `detail_barang_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`);
 
 --
--- Constraints for table `temuan`
+-- Ketidakleluasaan untuk tabel `temuan`
 --
 ALTER TABLE `temuan`
   ADD CONSTRAINT `temuan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
@@ -353,7 +390,7 @@ ALTER TABLE `temuan`
   ADD CONSTRAINT `temuan_ibfk_4` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`);
 
 --
--- Constraints for table `user`
+-- Ketidakleluasaan untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_level`) REFERENCES `user_level` (`id_level`);
