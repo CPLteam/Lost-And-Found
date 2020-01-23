@@ -1,5 +1,13 @@
 <!-- <h5> <?= $temuan->no_laporan ?> </h5> -->
+<script type="text/javascript" src="<?php echo base_url('assets/vendor/jquery/jquery-3.4.1.js') ?>"></script>
+<!-- <script type="text/javascript">
+	$('#exampleModal').on('show.bs.modal', event => {
+		var button = $(event.relatedTarget);
+		var modal = $(this);
+		// Use above variables to manipulate the DOM
 
+	});
+</script> -->
 <div class="modal fade" id="modelTemuan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -10,7 +18,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <?= form_open_multipart('penemuan/add_action'); ?>
+                <?= form_open_multipart('penemuan/ambil_action'); ?>
 
                 <div class="form-group">
                     <label for="no_laporan">No. Laporan</label>
