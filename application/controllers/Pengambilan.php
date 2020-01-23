@@ -83,9 +83,4 @@ class Pengambilan extends CI_Controller
 		}
 		redirect(site_url('pengambilan'));
 	}
-	public function belo($data)
-	{
-		$data->status = 1;
-		$this->db->update('temuan', $data);
-	}
 }
