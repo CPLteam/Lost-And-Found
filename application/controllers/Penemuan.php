@@ -194,5 +194,6 @@ class Penemuan extends CI_Controller
         $this->load->view('templates/footer', $data);
         $this->load->view('templates/logout', $data);
         $this->load->view('penemuan/tes');
+        $this->load->view('penemuan/formpenemuan');
     }
 }
