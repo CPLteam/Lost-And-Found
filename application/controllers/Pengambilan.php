@@ -7,6 +7,7 @@ class Pengambilan extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->model('penemuan_model');
 		$this->load->model('pengambilan_model');
 		$this->load->model('No_urut');
 		$this->load->library('form_validation');
@@ -22,11 +23,12 @@ class Pengambilan extends CI_Controller
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['title'] = 'Lost & Found -  Data Pengambilan';
 		$data['pengambilan'] = $this->pengambilan_model->getAllPengambilan();
+		$data['temuan'] = $this->Penemuan_model->getAllPenemuan();
 		$this->load->view('templates/auth_header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('pengambilan/index');
-		$this->load->view('pengambilan/formpengambilan');
+		// $this->load->view('penemuan/formpengambilan');
 		$this->load->view('templates/footer', $data);
 		$this->load->view('templates/logout', $data);
 		$this->load->view('templates/auth_footer');
@@ -34,14 +36,19 @@ class Pengambilan extends CI_Controller
 
 
 
-	public function add()
+	public function add($id = null)
 	{
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['title'] = 'Lost & Found - Formulir Pengambilan';
+		$data['temuan'] = $this->Penemuan_model->getAllPenemuan();
+		$data['idnolaporan'] = $this->Penemuan_model->getBynolaporantemuan($id);
+
 		$this->load->view('templates/auth_header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
+		$this->load->view('pengambilan/index');
 		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/logout', $data);
 		$this->load->view('templates/auth_footer');
 	}
 

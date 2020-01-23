@@ -23,6 +23,13 @@ class Penemuan_model extends CI_Model
         return $this->db->get('temuan')->result_array();
     }
 
+    function getBynolaporantemuan($id)
+    {
+        $this->db->select("no_laporan");
+        $this->db->from("temuan");
+        $this->db->where("no_laporan = $id");
+    }
+
     function get_by_id($id)
     {
         $this->db->where($this->id, $id);

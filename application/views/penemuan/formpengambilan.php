@@ -9,11 +9,11 @@
 </script>
 
 <!-- Tambah Pengambilan Modal-->
-<div class="modal fade" id="modelPengambilan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade" id="modalPengambilan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Form Pengambilan</h5>
+				<h5 class="modal-title">Form Pengambilan Barang</h5>
 			</div>
 			<div class="modal-body">
 				<?= form_open_multipart('pengambilan/add_action'); ?>

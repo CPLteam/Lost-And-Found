@@ -4,7 +4,7 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">List Temuan Barang</h1>
 
-    <?= anchor(site_url('penemuan/add'), 'Tambah Baru', 'class="btn btn-primary" data-toggle="modal" data-target="#modelTemuan"');  ?>
+    <?= anchor(site_url('penemuan/add'), 'Tambah Baru', 'class="btn btn-primary" data-toggle="modal" data-target="#modalAddtemuan"');  ?>
 
     <hr>
 
@@ -74,8 +74,10 @@
                                     // }
                                     if ($temu['status'] == 0) {
                                     ?>
-                                        <a href="<?= base_url(); ?>penemuan/tes/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" ">BELOM</a>
+                                        <!-- <a href="<?= base_url(); ?>penemuan/tes/<?= $temu['no_laporan'] ?>" class="btn btn-danger float-right" ">BELOM</a> -->
                                         <!-- <?= anchor(site_url('pengambilan/ambil'), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modelPengambilan"');  ?> -->
+                                        <!-- <?= anchor(site_url('pengambilan/add' . $temu->no_laporan), 'Belum Diambil', 'class="btn btn-danger" data-toggle="modal" data-target="#modalPengambilan"');  ?> -->
+                                        <a onclick="ambilConfirm('<?php echo site_url('pengambilan/add/' . $temu['no_laporan']) ?>')" href="#!" class="btn btn-danger"> Belum Diambil</a>
                                     <?php
                                     } else {
                                         echo '<button type="button" class="btn btn-success">Sudah Diambil</button>';
@@ -97,6 +99,13 @@
 </div>
 <!-- /.container-fluid -->
 
+<script>
+    function ambilConfirm(url) {
+        $('#btn-add').attr('href', url);
+        $('#modalPengambilan').modal();
+    }
+</script>
+
 <style type="text/css">
     #results {
         padding: 20px;
@@ -109,7 +118,7 @@
 <!-- End of Main Content -->
 
 <!-- Tambah Pengambilan Modal-->
-<div class="modal fade" id="modelPengambilan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade" id="modalPengambilan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -123,15 +132,15 @@
                 </div>
                 <div class="form-group">
                     <label for="nama_pengambil">Nama Pengambil</label>
-                    <input type="text" class="form-control" name="nama_pengambil" id="nama_pengambil" value="<?= set_value('nama_pengambil'); ?>">
+                    <input type="text" class="form-control" name="nama_pengambil" id="nama_pengambil" value="<?= set_value('nama_pengambil'); ?>" required="required">
                 </div>
                 <div class="form-group">
                     <label for="no_handphone">No Handphone</label>
-                    <input type="text" class="form-control" name="no_hp" id="no_hp" value="<?= set_value('no_hp'); ?>">
+                    <input type="text" class="form-control" name="no_hp" id="no_hp" value="<?= set_value('no_hp'); ?>" required="required">
                 </div>
                 <div class="form-group">
                     <label for="no_handphone">Foto Pengambil</label>
-                    <input type="file" class="form-control" name="foto_pengambil" id="foto_pengambil" value="<?= set_value('foto_pengambil'); ?>">
+                    <input type="file" class="form-control" name="foto_pengambil" id="foto_pengambil" value="<?= set_value('foto_pengambil'); ?>" required="required">
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="id_ambil" value="<?= set_value('id_ambil'); ?>">
