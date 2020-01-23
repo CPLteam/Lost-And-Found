@@ -122,7 +122,7 @@
                 <?= form_open_multipart('penemuan/ambil_action'); ?>
                 <div class="form-group">
                     <label for="no_laporan">No Laporan</label>
-                    <select class="form-control" name="no_laporan" id="no_laporan" required>
+                    <select class="form-control" name="no_laporan" id="no_laporan" required="required">
                         <?php
                         $sql = $this->db->get('temuan');
                         foreach ($sql->result() as $row) : ?>
@@ -135,15 +135,15 @@
                 </div>
                 <div class="form-group">
                     <label for="nama_pengambil">Nama Pengambil</label>
-                    <input type="text" class="form-control" name="nama_pengambil" id="nama_pengambil" value="<?= set_value('nama_pengambil'); ?>">
+                    <input type="text" class="form-control" name="nama_pengambil" id="nama_pengambil" value="<?= set_value('nama_pengambil'); ?>" required="required">
                 </div>
                 <div class="form-group">
                     <label for="no_handphone">No Handphone</label>
-                    <input type="text" class="form-control" name="no_hp" id="no_hp" value="<?= set_value('no_hp'); ?>">
+                    <input type="text" class="form-control" name="no_hp" id="no_hp" value="<?= set_value('no_hp'); ?>" required="required">
                 </div>
                 <div class="form-group">
                     <label for="no_handphone">Foto Pengambil</label>
-                    <input type="file" class="form-control" name="foto_pengambil" id="foto_pengambil" value="<?= set_value('foto_pengambil'); ?>">
+                    <input type="file" class="form-control" name="foto_pengambil" id="foto_pengambil" value="<?= set_value('foto_pengambil'); ?>" required="required">
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="id_ambil" value="<?= set_value('id_ambil'); ?>">

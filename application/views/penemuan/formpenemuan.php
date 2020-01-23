@@ -66,8 +66,8 @@
 
 				<div class="form-group">
 					<label for="jenis_barang">Jenis Barang Yang Ditemukan</label>
-					<select name="id_barang" id="barang" class="form-control">
-						<option value="0">-SELECT-</option>
+					<select name="id_barang" id="barang" class="form-control" required="required">
+						<!-- <option value="0">-SELECT-</option> -->
 						<?php
 						foreach ($detail_barang->result() as $row) : ?>
 							<option value="<?php echo $row->id_barang; ?>"><?php echo $row->jenis_barang; ?></option>
@@ -78,19 +78,19 @@
 
 				<div class="form-group">
 					<label for="nama_barang">Nama Barang Yang Ditemukan</label>
-					<select name="id_detail_barang" id="detail_barang" class="form-control">
-						<option value="0">-SELECT-</option>
+					<select name="id_detail_barang" id="detail_barang" class="form-control" required="required">
+						<!-- <option value="0">-SELECT-</option> -->
 					</select>
 				</div>
 
 				<div class="form-group">
 					<label for="deskripsi">Deskripsi Barang Yang Ditemukan</label>
-					<input type="text" name="deskripsi" id="deskripsi" class="form-control" placeholder="Contoh : Handphone Merek Samsung Warna Biru" value="<?= set_value('deskripsi'); ?>">
+					<input type="text" name="deskripsi" id="deskripsi" class="form-control" placeholder="Contoh : Handphone Merek Samsung Warna Biru" value="<?= set_value('deskripsi'); ?>" required="required">
 				</div>
 
 				<div class="form-group">
 					<label for="lokasi_penemuan">Lokasi Penemuan</label>
-					<select name="id_lokasi" class="form-control">
+					<select name="id_lokasi" class="form-control" required="required">
 						<?php
 						$sql = $this->db->get('lokasi');
 						foreach ($sql->result() as $row) {
@@ -105,12 +105,12 @@
 
 				<div class="form-group">
 					<label for="lokasi_penemuan">Deskripsi Lokasi Penemuan</label>
-					<input type="text" name="lokasi_penemuan" id="lokasi_penemuan" class="form-control" placeholder="Contoh : Diatas Meja / Didalam Ruangan 615 / Di toilet" value="<?= set_value('lokasi_penemuan'); ?>">
+					<input type="text" name="lokasi_penemuan" id="lokasi_penemuan" class="form-control" placeholder="Contoh : Diatas Meja / Didalam Ruangan 615 / Di toilet" value="<?= set_value('lokasi_penemuan'); ?>" required="required">
 				</div>
 
 				<div class="form-group">
 					<label for="foto_barang">Foto Barang Yang Ditemukan</label>
-					<input type="file" name="foto_barang" id="foto_barang" class="form-control" value="<?= set_value('foto_barang'); ?>">
+					<input type="file" name="foto_barang" id="foto_barang" class="form-control" value="<?= set_value('foto_barang'); ?>" required="required">
 				</div>
 
 				<div class="modal-footer">
