@@ -4,13 +4,9 @@ CPL team dev
 Nama Anggota Tim:
 
 Anastasya Auliya (012516004)
-
 Dheannnisa Ramadhani P (0102516034)
-
 Galih Adiguna (0102516011)
-
-M. Ichsan Prayoga (0102516020)
-
+M . Ichsan Prayoga (0102516020)
 Nugraha Purnama Aji (010251624)
 
 
@@ -24,6 +20,7 @@ Cara instalasi :
 
 3. Log In
 
+
 Email: mieayampangsit21@gmail.com
 
-Password: 
+Password: 123456
