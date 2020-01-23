@@ -7,9 +7,9 @@ class Penemuan extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('form_validation');
         $this->load->model('Penemuan_model');
         $this->load->model('No_urut');
-        $this->load->library('form_validation');
         $this->load->model('Pengambilan_model');
 
         if (!$this->session->userdata('email')) {
@@ -23,6 +23,7 @@ class Penemuan extends CI_Controller
         $data['title'] = 'Lost & Found - Penemuan';
         $data['temuan'] = $this->Penemuan_model->getAllPenemuan();
         $data['detail_barang'] = $this->Penemuan_model->get_jenisBarang();
+
         $this->load->view('templates/auth_header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -38,6 +39,7 @@ class Penemuan extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Lost & Found - Tambah Barang Temuan';
         $data['detail_barang'] = $this->Penemuan_model->get_jenisBarang();
+
         $this->load->view('templates/auth_header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -87,7 +89,6 @@ class Penemuan extends CI_Controller
 
         $user = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-
         $data = array(
             'id_temuan' => $this->input->post('id_temuan'),
             'no_laporan' => $this->input->post('no_laporan'),
@@ -111,7 +112,6 @@ class Penemuan extends CI_Controller
         $detail_barang = $this->Penemuan_model->get_namaBarang($id_barang);
         echo json_encode($detail_barang);
     }
-
 
     public function hapus($no_laporan)
     {
